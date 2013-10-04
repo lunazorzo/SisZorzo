@@ -1,0 +1,8 @@
+[Servidor]
+localhost
+[Banco]
+D:\JAVA\AtelierSystem - DAYARA\ATELIERDAYARA.GDB
+[Usuario]
+SYSDBA
+[Senha]
+masterkey

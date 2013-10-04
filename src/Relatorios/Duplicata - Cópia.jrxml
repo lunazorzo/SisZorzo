@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Duplicata" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="txt_nomerazaosocial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="num_cpfcnpj" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="num_incricaoestatudal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="txt_endereco" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="txt_bairro" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="num_numero" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="num_cep" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="txt_nome_estado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="txt_cidade" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="num_celular1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="num_duplicata" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="num_valor_duplicata" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="valor_extenso" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="num_valor_fatura" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dt_vencimento" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     dbcliente."txt_nomerazaosocial" AS dbcliente_txt_nomerazaosocial,
+     dbcliente."num_cpfcnpj" AS dbcliente_num_cpfcnpj,
+     dbcliente."num_inscricaoestatudal" AS dbcliente_num_inscricaoestatudal,
+     dbcliente."txt_endereco" AS dbcliente_txt_endereco,
+     dbcliente."txt_bairrodistrito" AS dbcliente_txt_bairrodistrito,
+     dbcliente."num_numero" AS dbcliente_num_numero,
+     dbcliente."num_cep" AS dbcliente_num_cep,
+     dbcliente."txt_cidade" AS dbcliente_txt_cidade,
+     dbestado."txt_nome_estado" AS dbestado_txt_nome_estado,
+     dbcliente."num_telefone" AS dbcliente_num_telefone,
+     dbcliente."num_celular1" AS dbcliente_num_celular1
+FROM
+     "public"."dbestado" dbestado INNER JOIN "public"."dbcliente" dbcliente ON dbestado."id_cod_estado" = dbcliente."id_cod_estado"]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="397" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="253" width="555" height="41"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="0" y="10" width="555" height="109"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="0" y="202" width="555" height="40"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="-1" y="130" width="555" height="60"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="327" y="349" width="227" height="40"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="335" y="304" width="219" height="35"/>
+			</rectangle>
+			<textField>
+				<reportElement x="338" y="170" width="76" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{num_celular1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="170" width="38" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Celular:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="273" y="170" width="27" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{txt_nome_estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="64" y="150" width="250" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{txt_endereco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="150" width="198" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{txt_bairro}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="314" y="130" width="54" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNPJ/CPF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="170" width="25" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEP:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="150" width="33" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bairro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="150" width="50" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereço:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="130" width="72" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome/Razão:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="170" width="19" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[UF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="170" width="13" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="170" width="104" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{txt_cidade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="170" width="50" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Municipio:]]></text>
+			</staticText>
+			<elementGroup>
+				<image>
+					<reportElement x="14" y="18" width="120" height="72"/>
+					<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\Allan\\Downloads\\zorzo.jpg"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="335" y="20" width="220" height="72"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Duplicata de Venda Mercantil
+CNPJ 10.423.141/0001-70
+Inscrição Estadual 904.59365-60
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="99" width="76" height="20"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nº Duplicata]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="14" y="99" width="240" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Natureza da Operação: Venda a prazo]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="414" y="99" width="100" height="20"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$P{num_duplicata}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="135" y="19" width="190" height="72"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Zorzo Insumos Agrícolas LTDA.
+(45) 3054.0415
+(45) 9979.7999
+zorzoinsumos@gmail.com
+]]></text>
+				</staticText>
+			</elementGroup>
+			<staticText>
+				<reportElement x="14" y="253" width="121" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereço de Pagamento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="104" y="273" width="418" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{valor_extenso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="273" width="90" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor por Extenso:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="253" width="387" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<text><![CDATA[Av. José João Muraro, 1261, Jardim Porto Alegre - Toledo - Paraná]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="304" width="311" height="45"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<text><![CDATA[Reconhecemos a exatidão desta duplicata de venda mercantil, na
+importancia acima que pagaremos à ZORZO INSUMOS AGRÍCOLAS
+LTDA. ou a sua ordem na praça e vencimento indicado.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="86" y="349" width="100" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($P{dt_vencimento})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="349" width="73" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Aceite:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="369" width="110" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assinatura do Sacado:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="124" y="388" width="194" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="330" y="364" width="118" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assinatura do Emitente:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="448" y="380" width="102" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="39" y="170" width="61" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{num_cep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="222" width="71" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($P{dt_vencimento})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="130" width="178" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{num_cpfcnpj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="170" width="118" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{num_incricaoestatudal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="130" width="228" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{txt_nomerazaosocial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="202" width="86" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data da Emissão:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="100" y="202" width="100" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="222" width="62" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vencimento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="202" width="63" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº da Fatura:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="339" y="308" width="206" height="31" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Após o vencimento cobrar juros, encargos financeiros sujeito ao Serasa e SPC.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="222" width="63" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº Duplicata:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="263" y="222" width="52" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{num_duplicata}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="263" y="202" width="52" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{num_duplicata}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="328" y="202" width="93" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor da Fatura R$:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="328" y="222" width="107" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor da Duplicata R$:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="420" y="202" width="115" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{num_valor_fatura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="222" width="115" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{num_valor_fatura}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
