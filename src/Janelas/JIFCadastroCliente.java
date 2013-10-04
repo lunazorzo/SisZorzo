@@ -248,7 +248,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JLEMAIL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JTFEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE))
+                                .addComponent(JTFEmail))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JTFCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -256,10 +256,10 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JBIncricaoEstadual)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JTFInscricaoEstadual, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
-                            .addComponent(JTFNomeRazao, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
+                                .addComponent(JTFInscricaoEstadual))
+                            .addComponent(JTFNomeRazao)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(JTFEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+                                .addComponent(JTFEndereco)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JLNumero)
@@ -287,7 +287,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JLBairroDistrito)
                                 .addGap(6, 6, 6)
-                                .addComponent(JTFBairroDistrito, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)))
+                                .addComponent(JTFBairroDistrito)))
                         .addGap(127, 182, 182))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(JLEstado)
@@ -296,7 +296,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                         .addGap(3, 3, 3)
                         .addComponent(JLCidade)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                        .addComponent(jtfCidade)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JLDataCadastro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -411,7 +411,41 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
         JFTLCelular1.setText("");
         JFTLCelular2.setText("");
         JTAObervacao.setText("");
+        JTFNomeRazao.requestFocus(true);
+    }
 
+    public void Validacampos() {
+        if (JTFNomeRazao.getText().trim().length() == 0) {//verifica se não existe o campo vazio ou com espaço 1
+            JOptionPane.showMessageDialog(this, "Informe Nome/Razão!");//msg de alerta ao usuario
+            return;
+        }
+        if (JTFCPFCNPJ.getText().trim().length() == 0) {//verifica se não existe o campo vazio ou com espaço 1
+            JOptionPane.showMessageDialog(this, "Informe CPF ou CNPJ!");//msg de alerta ao usuario
+            return;
+        }
+        if (JTFEndereco.getText().trim().length() == 0) {//verifica se não existe o campo vazio ou com espaço 1
+            JOptionPane.showMessageDialog(this, "Informe um Endereço!");//msg de alerta ao usuario
+            return;
+        }
+        if (JTFBairroDistrito.getText().trim().length() == 0) {//verifica se não existe o campo vazio ou com espaço 1
+            JOptionPane.showMessageDialog(this, "Informe um Bairro!");//msg de alerta ao usuario
+            return;
+        }
+        if (JTFNumero.getText().trim().length() == 0) {//verifica se não existe o campo vazio ou com espaço 1
+            JOptionPane.showMessageDialog(this, "Informe uma Senha!");//msg de alerta ao usuario
+            return;
+        }
+        if (JFTLCEP.getText().trim().length() == 0) {//verifica se não existe o campo vazio ou com espaço 1
+            JOptionPane.showMessageDialog(this, "Informe o CEP!");//msg de alerta ao usuario
+            return;
+        }
+        if (JCBEstado.getSelectedItem() == null) {// verifica que o objeto selecionado é = a vazio e da a msg
+            JOptionPane.showMessageDialog(this, "Selecione um Estado!");
+        }
+        if (JDCDataCadastro.getDate() == null) {//verificando se o usuario não informou vazio
+            JOptionPane.showMessageDialog(this, "Informe a data do Cadastro!");
+            return;
+        }
     }
     private void JBSintegraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSintegraActionPerformed
         //Abrindo o site do Sintegra quando clicado no botão de busca
@@ -448,44 +482,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JBCNPJCPFActionPerformed
 
     private void JBGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGravarActionPerformed
-//        if (JTFNomeRazao.getText().trim().length() == 0) {//verifica se não existe o campo vazio ou com espaço 1
-//            JOptionPane.showMessageDialog(this, "Informe Nome/Razão!");//msg de alerta ao usuario
-//            limparDados();
-//            return;
-//        }
-//        if (JTFCPFCNPJ.getText().trim().length() == 0) {//verifica se não existe o campo vazio ou com espaço 1
-//            JOptionPane.showMessageDialog(this, "Informe CPF ou CNPJ!");//msg de alerta ao usuario
-//            limparDados();
-//            return;
-//        }
-//        if (JTFEndereco.getText().trim().length() == 0) {//verifica se não existe o campo vazio ou com espaço 1
-//            JOptionPane.showMessageDialog(this, "Informe um Endereço!");//msg de alerta ao usuario
-//            limparDados();
-//            return;
-//        }
-//        if (JTFBairroDistrito.getText().trim().length() == 0) {//verifica se não existe o campo vazio ou com espaço 1
-//            JOptionPane.showMessageDialog(this, "Informe um Bairro!");//msg de alerta ao usuario
-//            limparDados();
-//            return;
-//        }
-//        if (JTFNumero.getText().trim().length() == 0) {//verifica se não existe o campo vazio ou com espaço 1
-//            JOptionPane.showMessageDialog(this, "Informe uma Senha!");//msg de alerta ao usuario
-//            limparDados();
-//            return;
-//        }
-//        if (JFTLCEP.getText().trim().length() == 0) {//verifica se não existe o campo vazio ou com espaço 1
-//            JOptionPane.showMessageDialog(this, "Informe o CEP!");//msg de alerta ao usuario
-//            limparDados();
-//            return;
-//        }
-//        if (JCBEstado.getSelectedItem() == null) {// verifica que o objeto selecionado é = a vazio e da a msg
-//            JOptionPane.showMessageDialog(this, "Selecione um Estado!");
-//        }
-//        if (JDCDataCadastro.getDate() == null) {//verificando se o usuario não informou vazio
-//            JOptionPane.showMessageDialog(this, "Informe a data do Cadastro!");
-//            return;
-//        }
-
+      //  Validacampos();
         try {
             if (cad_cliente == null) {
                 Cad_Cliente_TO t = new Cad_Cliente_TO();//criando o objeto e grava nele
@@ -507,8 +504,6 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                 t.setTxt_observacao(JTAObervacao.getText());
                 Cad_Cliente_DAO.incluir(t);//passando o objeto criado
                 JOptionPane.showMessageDialog(this, "Cadastro realizado com Sucesso!");
-                carregaCombo();
-                limparDados();
             } else {
                 cad_cliente.setTxt_nomerazaosocial(JTFNomeRazao.getText());
                 cad_cliente.setNum_cpfcnpj(JTFCPFCNPJ.getText());
@@ -528,13 +523,12 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                 cad_cliente.setTxt_observacao(JTAObervacao.getText());
                 Cad_Cliente_DAO.alterar(cad_cliente);//passando o objeto criado
                 JOptionPane.showMessageDialog(this, "Cadastro alterado com Sucesso!");
-                carregaCombo();
-                limparDados();
-            }
-
+            }            
+            carregaCombo();
+            limparDados();
         } catch (Throwable t) {
             //msg quando existir duplicidade nas informações ja registradas
-            JOptionPane.showMessageDialog(this, "Informações inválidas!");
+            JOptionPane.showMessageDialog(this, "Erro ao Cadastrar ou alterar os dados!");
             t.getMessage();
         }
     }//GEN-LAST:event_JBGravarActionPerformed

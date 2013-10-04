@@ -4,8 +4,10 @@
  */
 package Janelas;
 
+import Classes.Util;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
+import java.awt.PopupMenu;
 import java.awt.Toolkit;
 import java.net.URL;
 import java.util.logging.Level;

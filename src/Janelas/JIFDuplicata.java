@@ -34,7 +34,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
         initComponents();
         ga = new Tabela_Busca_Cliente();
         GradeBuscaCliente.setModel(ga);
-        BuscaCliente.setLocation(500, 207);//seta a localização da tela
+        BuscaCliente.setLocation(400, 207);//seta a localização da tela
         BuscaCliente.setMinimumSize(new Dimension(850, 500));//seta a dimensão/tamanho da tela
         BuscaCliente.setResizable(false);//desabilita a opção de maximizar
         carregaCombo();

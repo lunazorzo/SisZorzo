@@ -4,6 +4,10 @@
  */
 package Classes;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.JDesktopPane;
+
 /**
  *
  * @author Allan
@@ -16,7 +20,7 @@ public class Util {
         url = url.substring(6, url.length());
         url = url.replaceAll("%20", " ");
         return url;
-        
+
     }
 
     public static String valorPorExtenso(double vlr) {
@@ -154,5 +158,22 @@ public class Util {
             }
         }
         return (s);
+    }
+}
+
+class ClasseImagemII extends JDesktopPane {
+
+    Image iiImagem;
+
+    public ClasseImagemII(String imagem) {
+        try {
+            iiImagem = javax.imageio.ImageIO.read(getClass().getResource("/IMG/Brazil_Flag.jpg"));
+        } catch (Exception ex) {
+        }
+    }
+    
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(iiImagem, 0, 0, this.getWidth(), this.getHeight(), this);
     }
 }

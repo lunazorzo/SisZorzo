@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <NonVisualComponents>
@@ -113,7 +113,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="JLEMAIL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JTFEmail" pref="321" max="32767" attributes="0"/>
+                              <Component id="JTFEmail" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="JTFCPFCNPJ" min="-2" pref="230" max="-2" attributes="0"/>
@@ -122,11 +122,11 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="JBIncricaoEstadual" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JTFInscricaoEstadual" pref="219" max="32767" attributes="0"/>
+                              <Component id="JTFInscricaoEstadual" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="JTFNomeRazao" alignment="0" pref="597" max="32767" attributes="0"/>
+                          <Component id="JTFNomeRazao" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="JTFEndereco" pref="415" max="32767" attributes="0"/>
+                              <Component id="JTFEndereco" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="JLNumero" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -160,7 +160,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="JLBairroDistrito" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Component id="JTFBairroDistrito" pref="416" max="32767" attributes="0"/>
+                              <Component id="JTFBairroDistrito" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="127" pref="182" max="-2" attributes="0"/>
@@ -172,7 +172,7 @@
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                       <Component id="JLCidade" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jtfCidade" pref="289" max="32767" attributes="0"/>
+                      <Component id="jtfCidade" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JLDataCadastro" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
