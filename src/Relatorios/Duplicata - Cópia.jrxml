@@ -110,7 +110,7 @@ FROM
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{txt_endereco}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="347" y="150" width="198" height="20"/>
+				<reportElement x="415" y="150" width="130" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{txt_bairro}]]></textFieldExpression>
 			</textField>
@@ -129,7 +129,7 @@ FROM
 				<text><![CDATA[CEP:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="314" y="150" width="33" height="20"/>
+				<reportElement x="381" y="150" width="33" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
@@ -382,6 +382,18 @@ LTDA. ou a sua ordem na praça e vencimento indicado.]]></text>
 				<reportElement x="435" y="222" width="115" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{num_valor_fatura}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="315" y="150" width="15" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="150" width="51" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{num_numero}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

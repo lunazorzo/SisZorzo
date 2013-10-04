@@ -35,7 +35,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
         ga = new Tabela_Busca_Cliente();
         GradeBuscaCliente.setModel(ga);
         BuscaCliente.setLocation(500, 207);//seta a localização da tela
-        BuscaCliente.setMinimumSize(new Dimension(600, 500));//seta a dimensão/tamanho da tela
+        BuscaCliente.setMinimumSize(new Dimension(850, 500));//seta a dimensão/tamanho da tela
         BuscaCliente.setResizable(false);//desabilita a opção de maximizar
         carregaCombo();
     }
@@ -75,6 +75,8 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
         jlValorExtenso = new javax.swing.JLabel();
         jtfValorExtenso = new javax.swing.JTextField();
         JDCDataVencimento = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
+        jtfNumero = new javax.swing.JTextField();
 
         BuscaCliente.setTitle("Busca de Cliente");
 
@@ -123,7 +125,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Duplicata");
-        setPreferredSize(new java.awt.Dimension(700, 325));
+        setPreferredSize(new java.awt.Dimension(680, 325));
 
         JLNomeRazao.setText("Nome/Razão:");
 
@@ -185,6 +187,8 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
 
         JDCDataVencimento.setDateFormatString("dd/MM/yyyy");
 
+        jLabel1.setText("Número:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -201,22 +205,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jlValorExtenso)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfValorExtenso, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JLNomeRazao, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JLCPFCNPJ)
-                                    .addComponent(JLEndereco))
-                                .addGap(13, 13, 13)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JTFEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
-                                    .addComponent(JTFNomeRazao, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(JTFCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JBIncricaoEstadual)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JTFInscricaoEstadual, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))))
+                                .addComponent(jtfValorExtenso))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(JLDataCadastro)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -225,6 +214,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                                 .addComponent(jlNumFaturaDuplicata)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jtfNumFaturaDuplicata, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JBGerarDuplicata)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -238,19 +228,40 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(JLBairroDistrito)
                                         .addGap(6, 6, 6)
-                                        .addComponent(JTFBairroDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(JTFBairroDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(91, 91, 91)
+                                        .addComponent(JTFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(JLCelular1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(JFTLCelular1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jtfNumero))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(JLCEP)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(JFTLCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JLNomeRazao, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JLCPFCNPJ)
+                                    .addComponent(JLEndereco))
+                                .addGap(13, 13, 13)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(JTFNomeRazao, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(JLCEP)
+                                        .addComponent(JTFCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JFTLCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(JBGerarDuplicata))
-                        .addGap(42, 42, 42)))
+                                        .addComponent(JBIncricaoEstadual)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JTFInscricaoEstadual)))))
+                        .addGap(62, 62, 62)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -270,7 +281,9 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLEndereco)
-                    .addComponent(JTFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jtfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -360,6 +373,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
             map.put("num_cpfcnpj", JTFCPFCNPJ.getText());
             map.put("num_incricaoestatudal", JTFInscricaoEstadual.getText());
             map.put("txt_endereco", JTFEndereco.getText());
+            map.put("num_numero", jtfNumero.getText());
             map.put("txt_bairro", JTFBairroDistrito.getText());
             map.put("num_cep", JFTLCEP.getText());
             //tem que realizar a conversão
@@ -394,6 +408,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                 JTFEndereco.setText(cad_cliente.getTxt_endereco());
                 JTFBairroDistrito.setText(cad_cliente.getTxt_bairrodistrito());
                 JFTLCEP.setText(cad_cliente.getNum_cep());
+                jtfNumero.setText(cad_cliente.getNum_numero());
                 for (int i = 1; i < JCBEstado.getItemCount(); i++) {
                     if (((Cad_Estado_TO) JCBEstado.getItemAt(i)).getId_cod_estado() == cad_cliente.getCad_estado().getId_cod_estado()) {
                         JCBEstado.setSelectedIndex(i);
@@ -450,12 +465,14 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
     private javax.swing.JTextField JTFEndereco;
     private javax.swing.JTextField JTFInscricaoEstadual;
     private javax.swing.JTextField JTFNomeRazao;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel jlNumFaturaDuplicata;
     private javax.swing.JLabel jlValorExtenso;
     private javax.swing.JLabel jlValorFatura;
     private javax.swing.JTextField jtfCidade;
     private javax.swing.JTextField jtfNumFaturaDuplicata;
+    private javax.swing.JTextField jtfNumero;
     private javax.swing.JTextField jtfValorExtenso;
     private javax.swing.JTextField jtfValorFatura;
     // End of variables declaration//GEN-END:variables

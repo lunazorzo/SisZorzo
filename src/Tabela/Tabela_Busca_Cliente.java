@@ -43,7 +43,7 @@ public class Tabela_Busca_Cliente extends ModeloTabelaBase {
                 return e.getTxt_cidade();
             }
             if (columnIndex == 9) {
-                return e.getNum_cep();
+                return e.getNum_numero();
             }
         }
         return null;
