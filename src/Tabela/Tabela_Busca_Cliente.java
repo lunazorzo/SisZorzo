@@ -43,7 +43,7 @@ public class Tabela_Busca_Cliente extends ModeloTabelaBase {
                 return e.getTxt_cidade();
             }
             if (columnIndex == 9) {
-                return e.getNum_numero();
+                return e.getNum_telefone();
             }
         }
         return null;
@@ -74,7 +74,7 @@ public class Tabela_Busca_Cliente extends ModeloTabelaBase {
             case 8:
                 return "Cidade";
             case 9:
-                return "Cidade";
+                return "Telefone";
             default:
                 return "";
         }

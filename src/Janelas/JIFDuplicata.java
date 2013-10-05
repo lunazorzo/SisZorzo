@@ -11,6 +11,7 @@ import Conexao.Conexao;
 import DAO.Cad_Cliente_DAO;
 import DAO.Cad_Estado_DAO;
 import Tabela.Tabela_Busca_Cliente;
+import Tabela.Tabela_Busca_Cliente_Duplicata;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.net.URL;
@@ -28,11 +29,11 @@ import net.sf.jasperreports.view.JasperViewer;
 public final class JIFDuplicata extends javax.swing.JInternalFrame {
 
     private Cad_Cliente_TO cad_cliente;
-    Tabela_Busca_Cliente ga;
+    Tabela_Busca_Cliente_Duplicata ga;
 
     public JIFDuplicata() throws Exception {
         initComponents();
-        ga = new Tabela_Busca_Cliente();
+        ga = new Tabela_Busca_Cliente_Duplicata();
         GradeBuscaCliente.setModel(ga);
         BuscaCliente.setLocation(400, 207);//seta a localização da tela
         BuscaCliente.setMinimumSize(new Dimension(850, 500));//seta a dimensão/tamanho da tela
@@ -107,20 +108,20 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
             .addGroup(BuscaClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(BuscaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscaClienteLayout.createSequentialGroup()
-                        .addGap(0, 504, Short.MAX_VALUE)
-                        .addComponent(JBBuscaCliente))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(JBBuscaCliente)))
                 .addContainerGap())
         );
         BuscaClienteLayout.setVerticalGroup(
             BuscaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BuscaClienteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(JBBuscaCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JBBuscaCliente)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setClosable(true);

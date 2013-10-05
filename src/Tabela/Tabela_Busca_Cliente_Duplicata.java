@@ -25,27 +25,27 @@ public class Tabela_Busca_Cliente_Duplicata extends ModeloTabelaBase {
                 return e.getNum_inscricaoestatudal();
             }
             if (columnIndex == 3) {
-                return e.getNum_celular1();
+                return e.getTxt_endereco();
             }
             if (columnIndex == 4) {
-                return e.getTxt_endereco();
+                return e.getNum_numero();
             }
             if (columnIndex == 5) {
                 return e.getTxt_bairrodistrito();
             }
             if (columnIndex == 6) {
-                return e.getNum_numero();
-            }
-            if (columnIndex == 7) {
                 return e.getNum_cep();
             }
-            if (columnIndex == 8) {
+            if (columnIndex == 7) {
                 return e.getCad_estado().getTxt_nome_estado();
             }
-            if (columnIndex == 9) {
+            if (columnIndex == 8) {
                 return e.getTxt_cidade();
-            }           
-            
+            }
+            if (columnIndex == 9) {
+                return e.getNum_celular1();
+            }
+
         }
         return null;
     }
@@ -63,21 +63,19 @@ public class Tabela_Busca_Cliente_Duplicata extends ModeloTabelaBase {
             case 2:
                 return "InscricaoEstadual";
             case 3:
-                return "CADPRO";
-            case 4:
-                return "Celular";
-            case 5:
                 return "Endereco";
-            case 6:
-                return "BairroDistrito";
-            case 7:
+            case 4:
                 return "Numero";
-            case 8:
+            case 5:
+                return "BairroDistrito";
+            case 6:
                 return "CEP";
-            case 9:
+            case 7:
                 return "Estado";
-            case 10:
+            case 8:
                 return "Cidade";
+            case 9:
+                return "Celular";
             default:
                 return "";
         }
