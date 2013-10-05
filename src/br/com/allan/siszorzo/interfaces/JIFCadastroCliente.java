@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Janelas;
+package br.com.allan.siszorzo.interfaces;
 
-import Classes.Cad_Cliente_TO;
-import Classes.Cad_Estado_TO;
-import DAO.Cad_Cliente_DAO;
-import DAO.Cad_Estado_DAO;
-import Tabela.Tabela_Busca_Cliente;
+import br.com.allan.siszorzo.classes.Cad_Cliente_TO;
+import br.com.allan.siszorzo.classes.Cad_Estado_TO;
+import br.com.allan.siszorzo.dao.Cad_Cliente_DAO;
+import br.com.allan.siszorzo.dao.Cad_Estado_DAO;
+import br.com.allan.siszorzo.grades.Tabela_Busca_Cliente;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -149,7 +149,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
 
         JLCPFCNPJ.setText("CPF/CNPJ:");
 
-        JBCNPJCPF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Busca.png"))); // NOI18N
+        JBCNPJCPF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Busca.png"))); // NOI18N
         JBCNPJCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBCNPJCPFActionPerformed(evt);
@@ -161,7 +161,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
 
         JLCADPRO.setText("CADPRO:");
 
-        JBSintegra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Busca.png"))); // NOI18N
+        JBSintegra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Busca.png"))); // NOI18N
         JBSintegra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBSintegraActionPerformed(evt);

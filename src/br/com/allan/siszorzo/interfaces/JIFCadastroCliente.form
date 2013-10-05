@@ -283,7 +283,7 @@
     <Component class="javax.swing.JButton" name="JBCNPJCPF">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/IMG/Busca.png"/>
+          <Image iconType="3" name="/br/com/allan/siszorzo/imagens/Busca.png"/>
         </Property>
       </Properties>
       <Events>
@@ -308,7 +308,7 @@
     <Component class="javax.swing.JButton" name="JBSintegra">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/IMG/Busca.png"/>
+          <Image iconType="3" name="/br/com/allan/siszorzo/imagens/Busca.png"/>
         </Property>
       </Properties>
       <Events>

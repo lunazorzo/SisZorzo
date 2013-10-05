@@ -2,12 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Janelas;
+package br.com.allan.siszorzo.interfaces;
 
-import Classes.Util;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
-import java.awt.PopupMenu;
 import java.awt.Toolkit;
 import java.net.URL;
 import java.util.logging.Level;
@@ -28,7 +26,7 @@ public class JFPrincipal extends javax.swing.JFrame {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ex) {
         }
-        URL url = this.getClass().getResource("/IMG/Trator.png");
+        URL url = this.getClass().getResource("/br/com/allan/siszorzo/imagens/Trator.png");
         Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
         this.setIconImage(imagemTitulo);
         setExtendedState(MAXIMIZED_BOTH);

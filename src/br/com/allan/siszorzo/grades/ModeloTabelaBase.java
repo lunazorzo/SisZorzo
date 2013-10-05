@@ -1,4 +1,4 @@
-package Tabela;
+package br.com.allan.siszorzo.grades;
 
 import java.util.ArrayList;
 import java.util.List;

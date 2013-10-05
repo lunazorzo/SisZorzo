@@ -1,4 +1,4 @@
-package Classes;
+package br.com.allan.siszorzo.classes;
 
 public class Cad_Estado_TO {
 

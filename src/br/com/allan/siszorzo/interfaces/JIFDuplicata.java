@@ -2,16 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Janelas;
+package br.com.allan.siszorzo.interfaces;
 
-import Classes.Cad_Cliente_TO;
-import Classes.Cad_Estado_TO;
-import Classes.Util;
-import Conexao.Conexao;
-import DAO.Cad_Cliente_DAO;
-import DAO.Cad_Estado_DAO;
-import Tabela.Tabela_Busca_Cliente;
-import Tabela.Tabela_Busca_Cliente_Duplicata;
+import br.com.allan.siszorzo.classes.Cad_Cliente_TO;
+import br.com.allan.siszorzo.classes.Cad_Estado_TO;
+import br.com.allan.siszorzo.classes.Util;
+import br.com.allan.siszorzo.conexao.Conexao;
+import br.com.allan.siszorzo.dao.Cad_Cliente_DAO;
+import br.com.allan.siszorzo.dao.Cad_Estado_DAO;
+import br.com.allan.siszorzo.grades.Tabela_Busca_Cliente_Duplicata;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.net.URL;
@@ -368,8 +367,8 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
     private void JBGerarDuplicataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGerarDuplicataActionPerformed
 
         try {
-            URL arquivo = getClass().getResource("/Relatorios/Duplicata - Cópia.jasper");
-            Map<String, Object> map = new HashMap<String, Object>();
+            URL arquivo = getClass().getResource("/br/com/allan/siszorzo/relatorios/Duplicata.jasper");
+            Map<String, Object> map = new HashMap<>();
             map.put("txt_nomerazaosocial", JTFNomeRazao.getText());
             map.put("num_cpfcnpj", JTFCPFCNPJ.getText());
             map.put("num_incricaoestatudal", JTFInscricaoEstadual.getText());

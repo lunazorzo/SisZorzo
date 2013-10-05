@@ -1,7 +1,7 @@
-package DAO;
+package br.com.allan.siszorzo.dao;
 
-import Classes.Cad_Estado_TO;
-import Conexao.Conexao;
+import br.com.allan.siszorzo.classes.Cad_Estado_TO;
+import br.com.allan.siszorzo.conexao.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
