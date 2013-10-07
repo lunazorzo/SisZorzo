@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Duplicata" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true" isIgnorePagination="true">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Duplicata" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -49,20 +49,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT
-     dbcliente."txt_nomerazaosocial" AS dbcliente_txt_nomerazaosocial,
-     dbcliente."num_cpfcnpj" AS dbcliente_num_cpfcnpj,
-     dbcliente."num_inscricaoestatudal" AS dbcliente_num_inscricaoestatudal,
-     dbcliente."txt_endereco" AS dbcliente_txt_endereco,
-     dbcliente."txt_bairrodistrito" AS dbcliente_txt_bairrodistrito,
-     dbcliente."num_numero" AS dbcliente_num_numero,
-     dbcliente."num_cep" AS dbcliente_num_cep,
-     dbcliente."txt_cidade" AS dbcliente_txt_cidade,
-     dbestado."txt_nome_estado" AS dbestado_txt_nome_estado,
-     dbcliente."num_telefone" AS dbcliente_num_telefone,
-     dbcliente."num_celular1" AS dbcliente_num_celular1
-FROM
-     "public"."dbestado" dbestado INNER JOIN "public"."dbcliente" dbcliente ON dbestado."id_cod_estado" = dbcliente."id_cod_estado"]]>
+		<![CDATA[select 1]]>
 	</queryString>
 	<detail>
 		<band height="802" splitType="Stretch">
@@ -707,8 +694,14 @@ zorzoinsumos@gmail.com
 				<text><![CDATA[Data de Aceite:]]></text>
 			</staticText>
 			<break>
-				<reportElement x="0" y="0" width="555" height="1"/>
+				<reportElement x="0" y="0" width="554" height="1"/>
 			</break>
+			<line>
+				<reportElement x="2" y="402" width="548" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
 		</band>
 	</detail>
 </jasperReport>

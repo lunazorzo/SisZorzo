@@ -206,7 +206,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
-        JLCelular2.setText("Celular2:");
+        JLCelular2.setText("Celular:");
 
         try {
             JFTLCelular2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));

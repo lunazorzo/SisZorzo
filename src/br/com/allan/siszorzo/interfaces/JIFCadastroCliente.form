@@ -405,7 +405,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="JLCelular2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Celular2:"/>
+        <Property name="text" type="java.lang.String" value="Celular:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="JFTLCelular2">
