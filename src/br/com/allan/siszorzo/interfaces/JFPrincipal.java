@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import br.com.allan.siszorzo.classes.ClasseImagem;
 
 /**
  *
@@ -44,7 +45,7 @@ public class JFPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem3 = new javax.swing.JMenuItem();
-        JDesktop = new javax.swing.JDesktopPane();
+        JDesktop = new ClasseImagem("/br/com/allan/siszorzo/imagens/Brazil_Flag.jpg");
         jMenuBar1 = new javax.swing.JMenuBar();
         JMCadastro = new javax.swing.JMenu();
         CadCliente = new javax.swing.JMenuItem();

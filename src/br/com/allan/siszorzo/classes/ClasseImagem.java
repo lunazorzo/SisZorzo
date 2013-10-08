@@ -4,31 +4,26 @@
  */
 package br.com.allan.siszorzo.classes;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
-import javax.swing.ImageIcon;
+import java.awt.Image;
 import javax.swing.JDesktopPane;
 
 /**
  *
  * @author Allan
  */
-public class ClasseImagem extends JDesktopPane {
-
-    private ImageIcon iiImagem;
-
+public class ClasseImagem  extends JDesktopPane {
+    Image iiImagem;
     public ClasseImagem(String imagem) {
-        iiImagem = new ImageIcon(getClass().getResource(imagem));
-    }
-
-        public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        iiImagem.paintIcon(this, g, 0, 0);
+    try {
+              iiImagem = javax.imageio.ImageIO.read(getClass().getResource("/br/com/allan/siszorzo/imagens/Brazil_Flag.jpg"));
+        } catch (Exception ex) {
+        }
     }
 
     @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(iiImagem.getIconWidth(),
-                iiImagem.getIconHeight());
-    }
+    public void paintComponent(Graphics g) {
+    super.paintComponent(g);
+    g.drawImage(iiImagem, 0,0,this.getWidth(),this.getHeight(),this);
+  }
 }
