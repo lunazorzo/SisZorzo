@@ -48,12 +48,14 @@ public class Cad_Estado_DAO {
         ResultSet rs = ps.executeQuery();
 
         ArrayList<Cad_Estado_TO> registros = new ArrayList<Cad_Estado_TO>();
-        Cad_Estado_TO tanqueTemp;
+        Cad_Estado_TO utilTemp;
         while (rs.next()) {
-            tanqueTemp = new Cad_Estado_TO();
-            tanqueTemp.setId_cod_estado(rs.getLong("id_cod_estado"));//pasando a id
-            tanqueTemp.setTxt_nome_estado(rs.getString("txt_nome_estado"));//passa o nome do campo no banco
-            registros.add(tanqueTemp);
+            utilTemp = new Cad_Estado_TO();
+            utilTemp.setId_cod_estado(rs.getLong("id_cod_estado"));//pasando a id
+            utilTemp.setTxt_nome_estado(rs.getString("txt_sigla_estado"));
+
+
+            registros.add(utilTemp);
         }
         return registros;
 
@@ -68,7 +70,7 @@ public class Cad_Estado_DAO {
         if (rs.next()) {
             adubacaoTemp = new Cad_Estado_TO();
             adubacaoTemp.setId_cod_estado(rs.getLong("id_cod_estado"));//pasando a id
-            adubacaoTemp.setTxt_nome_estado(rs.getString("txt_nome_estado"));//passa o nome do campo no banco
+            adubacaoTemp.setTxt_nome_estado(rs.getString("txt_sigla_estado"));//passa o nome do campo no banco
         }
         rs.close();
         return adubacaoTemp;

@@ -1,27 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Clientes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band height="79" splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band height="35" splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     dbcliente."txt_nomerazaosocial" AS dbcliente_txt_nomerazaosocial,
+     dbcliente."num_cpfcnpj" AS dbcliente_num_cpfcnpj,
+     dbcliente."txt_endereco" AS dbcliente_txt_endereco,
+     dbcliente."txt_bairrodistrito" AS dbcliente_txt_bairrodistrito,
+     dbcliente."num_numero" AS dbcliente_num_numero,
+     dbcliente."num_cep" AS dbcliente_num_cep,
+     dbcliente."txt_cidade" AS dbcliente_txt_cidade,
+     dbestado."txt_nome_estado" AS dbestado_txt_nome_estado,
+     dbcliente."txt_email" AS dbcliente_txt_email,
+     dbcliente."num_telefone" AS dbcliente_num_telefone,
+     dbcliente."num_celular1" AS dbcliente_num_celular1,
+     dbcliente."num_celular2" AS dbcliente_num_celular2,
+     dbcliente."dt_datacadastro" AS dbcliente_dt_datacadastro
+FROM
+     "public"."dbestado" dbestado INNER JOIN "public"."dbcliente" dbcliente ON dbestado."id_cod_estado" = dbcliente."id_cod_estado"]]>
+	</queryString>
+	<field name="dbcliente_txt_nomerazaosocial" class="java.lang.String"/>
+	<field name="dbcliente_num_cpfcnpj" class="java.lang.String"/>
+	<field name="dbcliente_txt_endereco" class="java.lang.String"/>
+	<field name="dbcliente_txt_bairrodistrito" class="java.lang.String"/>
+	<field name="dbcliente_num_numero" class="java.lang.String"/>
+	<field name="dbcliente_num_cep" class="java.lang.String"/>
+	<field name="dbcliente_txt_cidade" class="java.lang.String"/>
+	<field name="dbestado_txt_nome_estado" class="java.lang.String"/>
+	<field name="dbcliente_txt_email" class="java.lang.String"/>
+	<field name="dbcliente_num_telefone" class="java.lang.String"/>
+	<field name="dbcliente_num_celular1" class="java.lang.String"/>
+	<field name="dbcliente_num_celular2" class="java.lang.String"/>
+	<field name="dbcliente_dt_datacadastro" class="java.sql.Date"/>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="375" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="40" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dbcliente_txt_nomerazaosocial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="29" y="108" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dbcliente_num_cpfcnpj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="108" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dbcliente_txt_endereco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="108" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dbcliente_txt_bairrodistrito}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="108" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dbcliente_num_numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="108" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dbcliente_num_cep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="239" y="108" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dbcliente_txt_cidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="281" y="108" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dbestado_txt_nome_estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="323" y="108" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dbcliente_txt_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="108" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dbcliente_num_telefone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="108" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dbcliente_num_celular1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="108" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dbcliente_num_celular2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="491" y="108" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{dbcliente_dt_datacadastro}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="182" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Clientes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="60" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nome/Razão]]></text>
+			</staticText>
+		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>

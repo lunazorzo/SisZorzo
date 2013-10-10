@@ -56,10 +56,9 @@ public class Cad_Cidade_DAO {
             utilTemp = new Cad_Cidade_TO();
             utilTemp.setId_cod_cidade(rs.getLong("id_cod_cidade"));
             utilTemp.setTxt_nome_cidade(rs.getString("txt_nome_cidade"));
-            // buscar no DAO do TipoAdubacaoTO o objeto correspondente à chave estrangeira.
             Cad_Estado_TO ta = tadao.achar(rs.getLong("id_cod_estado"));
+            utilTemp.setTxt_nome_cidade(sql);
             utilTemp.setCad_estado(ta);
-            // fim da busca do TipoAdubacaoTO
             registros.add(utilTemp);
         }
         return registros;
