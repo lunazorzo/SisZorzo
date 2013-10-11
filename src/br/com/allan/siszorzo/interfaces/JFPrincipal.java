@@ -56,10 +56,10 @@ public class JFPrincipal extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         JDesktop = new ClasseImagem("/br/com/allan/siszorzo/imagens/Brazil_Flag.jpg");
         jMenuBar1 = new javax.swing.JMenuBar();
-        JMCadastro = new javax.swing.JMenu();
+        jmCadastro = new javax.swing.JMenu();
         CadCliente = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        CadFornecedor = new javax.swing.JMenuItem();
+        jmRelatorios = new javax.swing.JMenu();
         RelDuplicata = new javax.swing.JMenuItem();
 
         jMenuItem3.setText("jMenuItem3");
@@ -72,29 +72,29 @@ public class JFPrincipal extends javax.swing.JFrame {
             }
         });
 
-        JMCadastro.setText("Cadastro");
+        jmCadastro.setText("Cadastro");
 
-        CadCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
+        CadCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
         CadCliente.setText("Cliente");
         CadCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CadClienteActionPerformed(evt);
             }
         });
-        JMCadastro.add(CadCliente);
+        jmCadastro.add(CadCliente);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
-        jMenuItem1.setText("Fornecedor");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        CadFornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
+        CadFornecedor.setText("Fornecedor");
+        CadFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                CadFornecedorActionPerformed(evt);
             }
         });
-        JMCadastro.add(jMenuItem1);
+        jmCadastro.add(CadFornecedor);
 
-        jMenuBar1.add(JMCadastro);
+        jMenuBar1.add(jmCadastro);
 
-        jMenu1.setText("Relatórios");
+        jmRelatorios.setText("Relatórios");
 
         RelDuplicata.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, 0));
         RelDuplicata.setText("Duplicata");
@@ -103,9 +103,9 @@ public class JFPrincipal extends javax.swing.JFrame {
                 RelDuplicataActionPerformed(evt);
             }
         });
-        jMenu1.add(RelDuplicata);
+        jmRelatorios.add(RelDuplicata);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jmRelatorios);
 
         setJMenuBar(jMenuBar1);
 
@@ -145,7 +145,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_RelDuplicataActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void CadFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadFornecedorActionPerformed
         try {
             JIFFornecedor T = new JIFFornecedor();
             T.setLocation(425, 150);
@@ -154,7 +154,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(JFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_CadFornecedorActionPerformed
 
     private void CadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClienteActionPerformed
         try {
@@ -203,12 +203,12 @@ public class JFPrincipal extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem CadCliente;
+    private javax.swing.JMenuItem CadFornecedor;
     private javax.swing.JDesktopPane JDesktop;
-    private javax.swing.JMenu JMCadastro;
     private javax.swing.JMenuItem RelDuplicata;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenu jmCadastro;
+    private javax.swing.JMenu jmRelatorios;
     // End of variables declaration//GEN-END:variables
 }

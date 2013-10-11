@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 package br.com.allan.siszorzo.grades;
-
 import br.com.allan.siszorzo.classes.Cad_Fornecedor_TO;
 
 /**

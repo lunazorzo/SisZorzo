@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class Cad_Fornecedor_TO {
 
-    private Long id_cod_fornecedor;
+    private Long id_cod_cliente;
     private Cad_Estado_TO cad_estado;
     private Date dt_datacadastro;
     private String num_cpfcnpj;
@@ -21,28 +21,20 @@ public class Cad_Fornecedor_TO {
     private String num_celular2;
     private String num_cep;
     private String num_numero;
-    private String txt_cidade;    
     private String num_inscricaoestatudal;
+    private String txt_cidade;
     private String txt_nomerazaosocial;
     private String txt_endereco;
     private String txt_bairrodistrito;
     private String txt_observacao;
     private String txt_email;
 
-    public Long getId_cod_fornecedor() {
-        return id_cod_fornecedor;
+    public Long getId_cod_cliente() {
+        return id_cod_cliente;
     }
 
-    public void setId_cod_fornecedor(Long id_cod_fornecedor) {
-        this.id_cod_fornecedor = id_cod_fornecedor;
-    }
-
-    public Cad_Estado_TO getCad_estado() {
-        return cad_estado;
-    }
-
-    public void setCad_estado(Cad_Estado_TO cad_estado) {
-        this.cad_estado = cad_estado;
+    public void setId_cod_cliente(Long id_cod_cliente) {
+        this.id_cod_cliente = id_cod_cliente;
     }
 
     public Date getDt_datacadastro() {
@@ -101,12 +93,12 @@ public class Cad_Fornecedor_TO {
         this.num_numero = num_numero;
     }
 
-    public String getTxt_cidade() {
-        return txt_cidade;
+    public String getNum_inscricaoestatudal() {
+        return num_inscricaoestatudal;
     }
 
-    public void setTxt_cidade(String txt_cidade) {
-        this.txt_cidade = txt_cidade;
+    public void setNum_inscricaoestatudal(String num_inscricaoestatudal) {
+        this.num_inscricaoestatudal = num_inscricaoestatudal;
     }
 
     public String getTxt_nomerazaosocial() {
@@ -149,16 +141,24 @@ public class Cad_Fornecedor_TO {
         this.txt_email = txt_email;
     }
 
-    public String getNum_inscricaoestatudal() {
-        return num_inscricaoestatudal;
+    public Cad_Estado_TO getCad_estado() {
+        return cad_estado;
     }
 
-    public void setNum_inscricaoestatudal(String num_inscricaoestatudal) {
-        this.num_inscricaoestatudal = num_inscricaoestatudal;
+    public void setCad_estado(Cad_Estado_TO cad_estado) {
+        this.cad_estado = cad_estado;
     }
+
+    public String getTxt_cidade() {
+        return txt_cidade;
+    }
+
+    public void setTxt_cidade(String txt_cidade) {
+        this.txt_cidade = txt_cidade;
+    }
+
     @Override
     public String toString() {
         return txt_nomerazaosocial;
     }
-    
 }

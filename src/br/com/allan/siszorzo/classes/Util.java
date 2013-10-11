@@ -171,7 +171,7 @@ class ClasseImagemII extends JDesktopPane {
         } catch (Exception ex) {
         }
     }
-    
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(iiImagem, 0, 0, this.getWidth(), this.getHeight(), this);

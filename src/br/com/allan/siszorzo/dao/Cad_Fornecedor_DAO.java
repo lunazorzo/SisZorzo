@@ -23,7 +23,7 @@ public class Cad_Fornecedor_DAO {
     public static void incluir(Cad_Fornecedor_TO to) throws Exception {
         Conexao con = new Conexao();
         String sql = "INSERT INTO dbfornecedor (id_cod_estado, dt_datacadastro, num_cpfcnpj, num_telefone, txt_cidade, txt_nomerazaosocial, num_cep, "
-                + "num_numero, num_inscricaoestatudal, txt_endereco, "
+                + "num_numero, num_inscricaoestatudal,  txt_endereco, "
                 + "txt_bairrodistrito, txt_observacao, num_celular2, num_celular1, txt_email) "
                 + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";//quando nao for passar tds atributos do banco colocar entre parentes o nome da chave no banco
         //se passar dentro dos () nao importa a ordem
@@ -51,24 +51,24 @@ public class Cad_Fornecedor_DAO {
         String sql;
         sql = "UPDATE dbfornecedor SET txt_nomerazaosocial=?, num_cpfcnpj=?, num_inscricaoestatudal=?, txt_email=?, txt_endereco=?, txt_bairrodistrito=?,"
                 + " num_numero=?, num_cep=?, dt_datacadastro=?, num_telefone=?, num_celular1=?, num_celular2=?, txt_observacao=?, id_cod_estado=?, txt_cidade=?"
-                + " WHERE id_cod_cliente=?";
+                + " WHERE id_cod_fornecedor=?";
         con.prepararPst(sql);
         con.setParam(1, tt.getTxt_nomerazaosocial());//verificar
         con.setParam(2, tt.getNum_cpfcnpj());//verificar
         con.setParam(3, tt.getNum_inscricaoestatudal());//verificar
-        con.setParam(5, tt.getTxt_email());
-        con.setParam(6, tt.getTxt_endereco());
-        con.setParam(7, tt.getTxt_bairrodistrito());
-        con.setParam(8, tt.getNum_numero());
-        con.setParam(9, tt.getNum_cep());
-        con.setParam(10, new java.sql.Date(tt.getDt_datacadastro().getTime()));
-        con.setParam(11, tt.getNum_telefone());
-        con.setParam(12, tt.getNum_celular1());
-        con.setParam(13, tt.getNum_celular2());
-        con.setParam(14, tt.getTxt_observacao());//verificar
-        con.setParam(15, tt.getCad_estado().getId_cod_estado());
-        con.setParam(16, tt.getTxt_cidade());
-        con.setParam(17, tt.getId_cod_fornecedor());
+        con.setParam(4, tt.getTxt_email());
+        con.setParam(5, tt.getTxt_endereco());
+        con.setParam(6, tt.getTxt_bairrodistrito());
+        con.setParam(7, tt.getNum_numero());
+        con.setParam(8, tt.getNum_cep());
+        con.setParam(9, new java.sql.Date(tt.getDt_datacadastro().getTime()));
+        con.setParam(10, tt.getNum_telefone());
+        con.setParam(11, tt.getNum_celular1());
+        con.setParam(12, tt.getNum_celular2());
+        con.setParam(13, tt.getTxt_observacao());//verificar
+        con.setParam(14, tt.getCad_estado().getId_cod_estado());
+        con.setParam(15, tt.getTxt_cidade());
+        con.setParam(16, tt.getId_cod_cliente());
         con.executarPst(Conexao.ACAO_FECHAR);
     }
 
@@ -78,7 +78,7 @@ public class Cad_Fornecedor_DAO {
 
     public ArrayList<Cad_Fornecedor_TO> buscar(String razaosocial) throws Exception {//listando para fazer a impressao na grade
         Conexao con = new Conexao();
-        String sql = "SELECT * FROM dbcliente where txt_nomerazaosocial ILIKE ? ";//selecionando no banco passando o nome da tabela
+        String sql = "SELECT * FROM dbfornecedor where txt_nomerazaosocial ILIKE ? ";//selecionando no banco passando o nome da tabela
         PreparedStatement ps = con.getCon().prepareStatement(sql);
         ps.setString(1, "%" + razaosocial + "%");
         ResultSet rs = ps.executeQuery();
@@ -87,7 +87,7 @@ public class Cad_Fornecedor_DAO {
         Cad_Fornecedor_DAO tadao = Cad_Fornecedor_DAO.getInstance();
         while (rs.next()) {
             UserTemp = new Cad_Fornecedor_TO();
-            UserTemp.setId_cod_fornecedor(rs.getLong("id_cod_cliente"));
+            UserTemp.setId_cod_cliente(rs.getLong("id_cod_fornecedor"));
             UserTemp.setTxt_nomerazaosocial(rs.getString("txt_nomerazaosocial"));
             UserTemp.setNum_cpfcnpj(rs.getString("num_cpfcnpj"));
             UserTemp.setNum_inscricaoestatudal(rs.getString("num_inscricaoestatudal"));
@@ -110,9 +110,9 @@ public class Cad_Fornecedor_DAO {
         return registros;
     }
 
-    public ArrayList<Cad_Cliente_TO> buscarDuplicataFornecedor(String razaosocial) throws Exception {//listando para fazer a impressao na grade
+    public ArrayList<Cad_Cliente_TO> buscarDuplicata(String razaosocial) throws Exception {//listando para fazer a impressao na grade
         Conexao con = new Conexao();
-        String sql = "SELECT * FROM dbfornecedor where txt_nomerazaosocial ILIKE ? ";//selecionando no banco passando o nome da tabela
+        String sql = "SELECT * FROM dbcliente where txt_nomerazaosocial ILIKE ? ";//selecionando no banco passando o nome da tabela
         PreparedStatement ps = con.getCon().prepareStatement(sql);
         ps.setString(1, "%" + razaosocial + "%");
         ResultSet rs = ps.executeQuery();
@@ -143,7 +143,7 @@ public class Cad_Fornecedor_DAO {
 
     private Cad_Estado_TO achar(long id) throws Exception {
         Conexao con = new Conexao();
-        String sql = "SELECT * FROM dbfornecedor WHERE id_cod_estado = " + id;//selecionando no banco passando o nome da tabela
+        String sql = "SELECT * FROM dbestado WHERE id_cod_estado = " + id;//selecionando no banco passando o nome da tabela
         PreparedStatement ps = con.getCon().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         Cad_Estado_TO adubacaoTemp = null;
