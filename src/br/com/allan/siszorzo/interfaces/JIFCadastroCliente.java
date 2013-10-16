@@ -133,6 +133,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Cadastro de Cliente");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Cliente2.png"))); // NOI18N
         setPreferredSize(new java.awt.Dimension(728, 555));
 
         JLNomeRazao.setText("Nome/Razão:");
@@ -212,6 +213,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
 
         JLObservacao.setText("Observação:");
 
+        JBGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Salvar.png"))); // NOI18N
         JBGravar.setText("Gravar");
         JBGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -369,6 +371,11 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void setPosicao() {
+        Dimension d = this.getDesktopPane().getSize();
+        this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+    }
 
     public void dataHohe() {
         JDCDataCadastro.setDate(new java.util.Date());

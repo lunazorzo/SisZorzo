@@ -125,7 +125,8 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Duplicata");
-        setPreferredSize(new java.awt.Dimension(680, 325));
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Duplicata_1.png"))); // NOI18N
+        setPreferredSize(new java.awt.Dimension(690, 325));
 
         JLNomeRazao.setText("Nome/Razão:");
 
@@ -166,6 +167,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
+        JBGerarDuplicata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Duplicata.png"))); // NOI18N
         JBGerarDuplicata.setText("Gerar Impressão Duplicata");
         JBGerarDuplicata.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -327,6 +329,11 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+//Seta a posição da tela para o centro.
+    public void setPosicao() {
+        Dimension d = this.getDesktopPane().getSize();
+        this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+    }
 
     public void carregaTabelaClientes() {
         try {

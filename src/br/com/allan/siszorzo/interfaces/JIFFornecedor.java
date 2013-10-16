@@ -135,6 +135,7 @@ public final class JIFFornecedor extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Cadastro de Fornecedor");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Fornecedor.png"))); // NOI18N
         setPreferredSize(new java.awt.Dimension(728, 555));
 
         JLNomeRazao.setText("Nome/Razão:");
@@ -205,6 +206,7 @@ public final class JIFFornecedor extends javax.swing.JInternalFrame {
 
         JLObservacao.setText("Observação:");
 
+        JBGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Salvar.png"))); // NOI18N
         JBGravar.setText("Gravar");
         JBGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,7 +247,7 @@ public final class JIFFornecedor extends javax.swing.JInternalFrame {
                                         .addComponent(JLCelular2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(JFTLCelular2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 36, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(182, 182, 182))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(JLEstado)
@@ -355,7 +357,12 @@ public final class JIFFornecedor extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void carregaTabelaClientes() {
+    public void setPosicao() {
+        Dimension d = this.getDesktopPane().getSize();
+        this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+    }
+
+public void carregaTabelaClientes() {
         try {
             List l = Cad_Fornecedor_DAO.getInstance().buscar(JTFNomeRazao.getText());  // passa a consulta feita pelo DAO            
             ga.setDados(l);

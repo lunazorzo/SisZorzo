@@ -13,15 +13,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import br.com.allan.siszorzo.classes.ClasseImagem;
-import br.com.allan.siszorzo.classes.Util;
-import br.com.allan.siszorzo.conexao.Conexao;
-import java.io.InputStream;
-import java.util.HashMap;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -61,6 +52,8 @@ public class JFPrincipal extends javax.swing.JFrame {
         CadFornecedor = new javax.swing.JMenuItem();
         jmRelatorios = new javax.swing.JMenu();
         RelDuplicata = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenuItem3.setText("jMenuItem3");
 
@@ -72,9 +65,11 @@ public class JFPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jmCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Cadastro.png"))); // NOI18N
         jmCadastro.setText("Cadastro");
 
         CadCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        CadCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Cliente2.png"))); // NOI18N
         CadCliente.setText("Cliente");
         CadCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +79,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         jmCadastro.add(CadCliente);
 
         CadFornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
+        CadFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Fornecedor_1.png"))); // NOI18N
         CadFornecedor.setText("Fornecedor");
         CadFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,9 +90,11 @@ public class JFPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jmCadastro);
 
+        jmRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Relatorios.png"))); // NOI18N
         jmRelatorios.setText("Relatórios");
 
         RelDuplicata.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, 0));
+        RelDuplicata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Duplicata_1.png"))); // NOI18N
         RelDuplicata.setText("Duplicata");
         RelDuplicata.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +104,21 @@ public class JFPrincipal extends javax.swing.JFrame {
         jmRelatorios.add(RelDuplicata);
 
         jMenuBar1.add(jmRelatorios);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Suporte.png"))); // NOI18N
+        jMenu1.setText("Suporte");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Ajuda.png"))); // NOI18N
+        jMenuItem1.setText("Ajuda");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -117,7 +130,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JDesktop, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(JDesktop, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
         );
 
         pack();
@@ -137,9 +150,10 @@ public class JFPrincipal extends javax.swing.JFrame {
     private void RelDuplicataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelDuplicataActionPerformed
         try {
             JIFDuplicata T = new JIFDuplicata();
-            T.setLocation(425, 150);
+           // T.setLocation(425, 150);
             JDesktop.add(T);
             T.setVisible(true);
+            T.setPosicao();
         } catch (Exception ex) {
             Logger.getLogger(JFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -148,9 +162,10 @@ public class JFPrincipal extends javax.swing.JFrame {
     private void CadFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadFornecedorActionPerformed
         try {
             JIFFornecedor T = new JIFFornecedor();
-            T.setLocation(425, 150);
+            // T.setLocation(425, 150);
             JDesktop.add(T);
             T.setVisible(true);
+            T.setPosicao();
         } catch (Exception ex) {
             Logger.getLogger(JFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -159,13 +174,25 @@ public class JFPrincipal extends javax.swing.JFrame {
     private void CadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClienteActionPerformed
         try {
             JIFCadastroCliente T = new JIFCadastroCliente();
-            T.setLocation(425, 150);
+            //T.setLocation(425, 150);
             JDesktop.add(T);
             T.setVisible(true);
+            T.setPosicao();
         } catch (Exception ex) {
             Logger.getLogger(JFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_CadClienteActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+         try {
+            JIFAjuda T = new JIFAjuda();
+            JDesktop.add(T);
+            T.setVisible(true);
+            T.setPosicao();
+        } catch (Exception ex) {
+            Logger.getLogger(JFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,7 +233,9 @@ public class JFPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem CadFornecedor;
     private javax.swing.JDesktopPane JDesktop;
     private javax.swing.JMenuItem RelDuplicata;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu jmCadastro;
     private javax.swing.JMenu jmRelatorios;
