@@ -11,6 +11,7 @@ public class Cad_Estado_DAO {
     private static Cad_Estado_DAO instance;
 
     //incluindo no banco de dados
+
     public static void incluir(Cad_Estado_TO to) throws Exception {
         Conexao con = new Conexao();
         String sql = "INSERT INTO dbestado (txt_nome_estado) VALUES (?)";//quando nao for passar tds atributos do banco colocar entre parentes o nome da chave no banco
@@ -53,12 +54,26 @@ public class Cad_Estado_DAO {
             utilTemp = new Cad_Estado_TO();
             utilTemp.setId_cod_estado(rs.getLong("id_cod_estado"));//pasando a id
             utilTemp.setTxt_nome_estado(rs.getString("txt_sigla_estado"));
-
-
             registros.add(utilTemp);
         }
         return registros;
+    }
 
+    public ArrayList<Cad_Estado_TO> buscarTeste(int codigo) throws Exception {//listando para fazer a impressao na grade
+        Conexao con = new Conexao();
+        String sql = "SELECT * FROM dbestado";//selecionando no banco passando o nome da tabela
+        PreparedStatement ps = con.getCon().prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        ArrayList<Cad_Estado_TO> registros = new ArrayList<Cad_Estado_TO>();
+        Cad_Estado_TO utilTemp;
+        while (rs.next()) {
+            utilTemp = new Cad_Estado_TO();
+            utilTemp.setId_cod_estado(rs.getLong("id_cod_estado"));//pasando a id
+            utilTemp.setTxt_nome_estado(rs.getString("txt_sigla_estado"));
+            registros.add(utilTemp);
+        }
+        return registros;
     }
 
     Cad_Estado_TO achar(long id) throws Exception {

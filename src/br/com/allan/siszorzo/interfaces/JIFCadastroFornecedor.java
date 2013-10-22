@@ -23,20 +23,21 @@ import javax.swing.JOptionPane;
  *
  * @author Allan
  */
-public final class JIFFornecedor extends javax.swing.JInternalFrame {
+public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
 
-    private Cad_Fornecedor_TO cad_cliente;
+    private Cad_Fornecedor_TO cad_fornecedor;
     Tabela_Busca_Fornecedor ga;
 
-    public JIFFornecedor() throws Exception {
+    public JIFCadastroFornecedor() throws Exception {
         initComponents();
         ga = new Tabela_Busca_Fornecedor();
-        GradeBuscaCliente.setModel(ga);
-//        BuscaCliente.setLocationRelativeTo(null);//Seta o Frame centralizado
+        GradeBuscaFornecedor.setModel(ga);
+
 //        BuscaCliente.setMaximumSize(null);//JFrame no meio da tela
-        BuscaCliente.setLocation(400, 207);//seta a localização da tela
-        BuscaCliente.setMinimumSize(new Dimension(850, 500));//seta a dimensão/tamanho da tela
-        BuscaCliente.setResizable(false);//desabilita a opção de maximizar
+//        BuscaCliente.setLocation(400, 207);//seta a localização da tela
+        BuscaFornecedor.setMinimumSize(new Dimension(850, 500));//seta a dimensão/tamanho da tela
+        BuscaFornecedor.setResizable(false);//desabilita a opção de maximizar
+        BuscaFornecedor.setLocationRelativeTo(null);//Seta o Frame centralizado
         carregaCombo();
         dataHohe();
     }
@@ -50,10 +51,10 @@ public final class JIFFornecedor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BuscaCliente = new javax.swing.JFrame();
-        JBBuscaCliente = new javax.swing.JButton();
+        BuscaFornecedor = new javax.swing.JFrame();
+        JBBuscaFornecedor = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        GradeBuscaCliente = new javax.swing.JTable();
+        GradeBuscaFornecedor = new javax.swing.JTable();
         JLNomeRazao = new javax.swing.JLabel();
         JTFNomeRazao = new javax.swing.JTextField();
         JLCPFCNPJ = new javax.swing.JLabel();
@@ -88,16 +89,16 @@ public final class JIFFornecedor extends javax.swing.JInternalFrame {
         JTFEmail = new javax.swing.JTextField();
         JDCDataCadastro = new com.toedter.calendar.JDateChooser();
 
-        BuscaCliente.setTitle("Busca de Cliente");
+        BuscaFornecedor.setTitle("Busca de Cliente");
 
-        JBBuscaCliente.setText("Selecionar o Cliente Desejado");
-        JBBuscaCliente.addActionListener(new java.awt.event.ActionListener() {
+        JBBuscaFornecedor.setText("Selecionar o Fornecedor Desejado");
+        JBBuscaFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBBuscaClienteActionPerformed(evt);
+                JBBuscaFornecedorActionPerformed(evt);
             }
         });
 
-        GradeBuscaCliente.setModel(new javax.swing.table.DefaultTableModel(
+        GradeBuscaFornecedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -108,28 +109,28 @@ public final class JIFFornecedor extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(GradeBuscaCliente);
+        jScrollPane2.setViewportView(GradeBuscaFornecedor);
 
-        javax.swing.GroupLayout BuscaClienteLayout = new javax.swing.GroupLayout(BuscaCliente.getContentPane());
-        BuscaCliente.getContentPane().setLayout(BuscaClienteLayout);
-        BuscaClienteLayout.setHorizontalGroup(
-            BuscaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BuscaClienteLayout.createSequentialGroup()
+        javax.swing.GroupLayout BuscaFornecedorLayout = new javax.swing.GroupLayout(BuscaFornecedor.getContentPane());
+        BuscaFornecedor.getContentPane().setLayout(BuscaFornecedorLayout);
+        BuscaFornecedorLayout.setHorizontalGroup(
+            BuscaFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BuscaFornecedorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(BuscaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(BuscaFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscaClienteLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscaFornecedorLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JBBuscaCliente)))
+                        .addComponent(JBBuscaFornecedor)))
                 .addContainerGap())
         );
-        BuscaClienteLayout.setVerticalGroup(
-            BuscaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BuscaClienteLayout.createSequentialGroup()
+        BuscaFornecedorLayout.setVerticalGroup(
+            BuscaFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BuscaFornecedorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBBuscaCliente)
+                .addComponent(JBBuscaFornecedor)
                 .addContainerGap())
         );
 
@@ -348,7 +349,7 @@ public final class JIFFornecedor extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JLObservacao)
                 .addGap(1, 1, 1)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JBGravar)
                 .addContainerGap())
@@ -362,11 +363,11 @@ public final class JIFFornecedor extends javax.swing.JInternalFrame {
         this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
     }
 
-public void carregaTabelaClientes() {
+    public void carregaTabelaClientes() {
         try {
             List l = Cad_Fornecedor_DAO.getInstance().buscar(JTFNomeRazao.getText());  // passa a consulta feita pelo DAO            
             ga.setDados(l);
-            GradeBuscaCliente.updateUI();
+            GradeBuscaFornecedor.updateUI();
         } catch (Throwable t) {
             t.printStackTrace();
             JOptionPane.showMessageDialog(this, "Erro ao Buscar Cliente!");
@@ -429,7 +430,7 @@ public void carregaTabelaClientes() {
     private void JBGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGravarActionPerformed
         //  Validacampos();
         try {
-            if (cad_cliente == null) {
+            if (cad_fornecedor == null) {
                 Cad_Fornecedor_TO t = new Cad_Fornecedor_TO();//criando o objeto e grava nele
                 t.setTxt_nomerazaosocial(JTFNomeRazao.getText());
                 t.setNum_cpfcnpj(JTFCPFCNPJ.getText());
@@ -449,22 +450,22 @@ public void carregaTabelaClientes() {
                 Cad_Fornecedor_DAO.incluir(t);//passando o objeto criado
                 JOptionPane.showMessageDialog(this, "Cadastro realizado com Sucesso!");
             } else {
-                cad_cliente.setTxt_nomerazaosocial(JTFNomeRazao.getText());
-                cad_cliente.setNum_cpfcnpj(JTFCPFCNPJ.getText());
-                cad_cliente.setNum_inscricaoestatudal(JTFInscricaoEstadual.getText());
-                cad_cliente.setTxt_email(JTFEmail.getText());
-                cad_cliente.setTxt_endereco(JTFEndereco.getText());
-                cad_cliente.setTxt_bairrodistrito(JTFBairroDistrito.getText());
-                cad_cliente.setNum_numero(JTFNumero.getText());
-                cad_cliente.setNum_cep(JFTLCEP.getText());
-                cad_cliente.setCad_estado((Cad_Estado_TO) JCBEstado.getSelectedItem());
-                cad_cliente.setTxt_cidade(jtfCidade.getText());
-                cad_cliente.setDt_datacadastro(JDCDataCadastro.getDate());
-                cad_cliente.setNum_telefone(JFTLTelefone.getText());
-                cad_cliente.setNum_celular1(JFTLCelular1.getText());
-                cad_cliente.setNum_celular2(JFTLCelular2.getText());
-                cad_cliente.setTxt_observacao(JTAObervacao.getText());
-                Cad_Fornecedor_DAO.alterar(cad_cliente);//passando o objeto criado
+                cad_fornecedor.setTxt_nomerazaosocial(JTFNomeRazao.getText());
+                cad_fornecedor.setNum_cpfcnpj(JTFCPFCNPJ.getText());
+                cad_fornecedor.setNum_inscricaoestatudal(JTFInscricaoEstadual.getText());
+                cad_fornecedor.setTxt_email(JTFEmail.getText());
+                cad_fornecedor.setTxt_endereco(JTFEndereco.getText());
+                cad_fornecedor.setTxt_bairrodistrito(JTFBairroDistrito.getText());
+                cad_fornecedor.setNum_numero(JTFNumero.getText());
+                cad_fornecedor.setNum_cep(JFTLCEP.getText());
+                cad_fornecedor.setCad_estado((Cad_Estado_TO) JCBEstado.getSelectedItem());
+                cad_fornecedor.setTxt_cidade(jtfCidade.getText());
+                cad_fornecedor.setDt_datacadastro(JDCDataCadastro.getDate());
+                cad_fornecedor.setNum_telefone(JFTLTelefone.getText());
+                cad_fornecedor.setNum_celular1(JFTLCelular1.getText());
+                cad_fornecedor.setNum_celular2(JFTLCelular2.getText());
+                cad_fornecedor.setTxt_observacao(JTAObervacao.getText());
+                Cad_Fornecedor_DAO.alterar(cad_fornecedor);//passando o objeto criado
                 JOptionPane.showMessageDialog(this, "Cadastro alterado com Sucesso!");
             }
             carregaCombo();
@@ -476,33 +477,33 @@ public void carregaTabelaClientes() {
         }
     }//GEN-LAST:event_JBGravarActionPerformed
 
-    private void JBBuscaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscaClienteActionPerformed
+    private void JBBuscaFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscaFornecedorActionPerformed
         try {
             //pegando a opção selecionada na grade
-            cad_cliente = (Cad_Fornecedor_TO) ga.getDadoAt(GradeBuscaCliente.getSelectedRow());
-            if (cad_cliente != null) {
-                JTFNomeRazao.setText(cad_cliente.getTxt_nomerazaosocial());
-                JTFCPFCNPJ.setText(cad_cliente.getNum_cpfcnpj());
-                JTFInscricaoEstadual.setText(cad_cliente.getNum_inscricaoestatudal());
-                JTFEmail.setText(cad_cliente.getTxt_email());
-                JTFEndereco.setText(cad_cliente.getTxt_endereco());
-                JTFBairroDistrito.setText(cad_cliente.getTxt_bairrodistrito());
-                JTFNumero.setText(cad_cliente.getNum_numero());
-                JFTLCEP.setText(cad_cliente.getNum_cep());
+            cad_fornecedor = (Cad_Fornecedor_TO) ga.getDadoAt(GradeBuscaFornecedor.getSelectedRow());
+            if (cad_fornecedor != null) {
+                JTFNomeRazao.setText(cad_fornecedor.getTxt_nomerazaosocial());
+                JTFCPFCNPJ.setText(cad_fornecedor.getNum_cpfcnpj());
+                JTFInscricaoEstadual.setText(cad_fornecedor.getNum_inscricaoestatudal());
+                JTFEmail.setText(cad_fornecedor.getTxt_email());
+                JTFEndereco.setText(cad_fornecedor.getTxt_endereco());
+                JTFBairroDistrito.setText(cad_fornecedor.getTxt_bairrodistrito());
+                JTFNumero.setText(cad_fornecedor.getNum_numero());
+                JFTLCEP.setText(cad_fornecedor.getNum_cep());
 
                 for (int i = 1; i < JCBEstado.getItemCount(); i++) {
-                    if (((Cad_Estado_TO) JCBEstado.getItemAt(i)).getId_cod_estado() == cad_cliente.getCad_estado().getId_cod_estado()) {
+                    if (((Cad_Estado_TO) JCBEstado.getItemAt(i)).getId_cod_estado() == cad_fornecedor.getCad_estado().getId_cod_estado()) {
                         JCBEstado.setSelectedIndex(i);
                         break;
                     }
                 }
-                jtfCidade.setText(cad_cliente.getTxt_cidade());
-                JDCDataCadastro.setDate(cad_cliente.getDt_datacadastro());
-                JFTLTelefone.setText(cad_cliente.getNum_telefone());
-                JFTLCelular1.setText(cad_cliente.getNum_celular1());
-                JFTLCelular2.setText(cad_cliente.getNum_celular2());
-                JTAObervacao.setText(cad_cliente.getTxt_observacao());
-                BuscaCliente.dispose();
+                jtfCidade.setText(cad_fornecedor.getTxt_cidade());
+                JDCDataCadastro.setDate(cad_fornecedor.getDt_datacadastro());
+                JFTLTelefone.setText(cad_fornecedor.getNum_telefone());
+                JFTLCelular1.setText(cad_fornecedor.getNum_celular1());
+                JFTLCelular2.setText(cad_fornecedor.getNum_celular2());
+                JTAObervacao.setText(cad_fornecedor.getTxt_observacao());
+                BuscaFornecedor.dispose();
 
             }
         } catch (Throwable t) {
@@ -510,19 +511,18 @@ public void carregaTabelaClientes() {
             limparDados();
             t.printStackTrace();
         }
-    }//GEN-LAST:event_JBBuscaClienteActionPerformed
+    }//GEN-LAST:event_JBBuscaFornecedorActionPerformed
 
     private void JTFNomeRazaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFNomeRazaoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             carregaTabelaClientes();
-            BuscaCliente.show();
+            BuscaFornecedor.show();
         }
     }//GEN-LAST:event_JTFNomeRazaoKeyPressed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFrame BuscaCliente;
-    private javax.swing.JTable GradeBuscaCliente;
-    private javax.swing.JButton JBBuscaCliente;
+    private javax.swing.JFrame BuscaFornecedor;
+    private javax.swing.JTable GradeBuscaFornecedor;
+    private javax.swing.JButton JBBuscaFornecedor;
     private javax.swing.JButton JBCNPJCPF;
     private javax.swing.JButton JBGravar;
     private javax.swing.JLabel JBIncricaoEstadual;

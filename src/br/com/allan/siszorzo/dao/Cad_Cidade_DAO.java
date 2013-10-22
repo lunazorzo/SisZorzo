@@ -44,9 +44,9 @@ public class Cad_Cidade_DAO {
     }
 
     //buscando para a grade
-    public ArrayList<Cad_Cidade_TO> buscar() throws Exception {//listando para fazer a impressao na grade
+    public ArrayList<Cad_Cidade_TO> buscar(Cad_Cidade_TO cod) throws Exception {//listando para fazer a impressao na grade
         Conexao con = new Conexao();
-        String sql = "SELECT * FROM dbcidade ";//selecionando no banco passando o nome da tabela
+        String sql = "SELECT * FROM dbcidade WHERE id_cod_estado = " + cod.getId_cod_cidade();//selecionando no banco passando o nome da tabela
         PreparedStatement ps = con.getCon().prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         ArrayList<Cad_Cidade_TO> registros = new ArrayList<Cad_Cidade_TO>();

@@ -32,11 +32,11 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
         initComponents();
         ga = new Tabela_Busca_Cliente();
         GradeBuscaCliente.setModel(ga);
-//        BuscaCliente.setLocationRelativeTo(null);//Seta o Frame centralizado
 //        BuscaCliente.setMaximumSize(null);//JFrame no meio da tela
-        BuscaCliente.setLocation(400, 207);//seta a localização da tela
+//        BuscaCliente.setLocation(400, 207);//seta a localização da tela
         BuscaCliente.setMinimumSize(new Dimension(850, 500));//seta a dimensão/tamanho da tela
         BuscaCliente.setResizable(false);//desabilita a opção de maximizar
+        BuscaCliente.setLocationRelativeTo(null);//Seta o Frame centralizado
         carregaCombo();
         dataHohe();
     }
@@ -363,7 +363,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                         .addComponent(JLObservacao))
                     .addComponent(JDCDataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JBGravar)
                 .addContainerGap())

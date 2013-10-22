@@ -50,6 +50,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         jmCadastro = new javax.swing.JMenu();
         CadCliente = new javax.swing.JMenuItem();
         CadFornecedor = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jmRelatorios = new javax.swing.JMenu();
         RelDuplicata = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
@@ -79,7 +80,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         jmCadastro.add(CadCliente);
 
         CadFornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
-        CadFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Fornecedor_1.png"))); // NOI18N
+        CadFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Fornecedor.png"))); // NOI18N
         CadFornecedor.setText("Fornecedor");
         CadFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +88,16 @@ public class JFPrincipal extends javax.swing.JFrame {
             }
         });
         jmCadastro.add(CadFornecedor);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Produto.png"))); // NOI18N
+        jMenuItem2.setText("Produto");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jmCadastro.add(jMenuItem2);
 
         jMenuBar1.add(jmCadastro);
 
@@ -139,7 +150,7 @@ public class JFPrincipal extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         Object[] botoes = {"Sim", "Não"};//tipo de formato dos botões
         //quando abrir a janela de sair é a msg que vai ser mostrada
-        resposta = JOptionPane.showOptionDialog(null, "Confirma Encerramento do Sistama?", "ATENÇÃO",
+        resposta = JOptionPane.showOptionDialog(null, "Confirma Encerramento do Sistema?", "ATENÇÃO",
                 JOptionPane.YES_NO_OPTION,//Tipo usado para confirmar o questionamento
                 JOptionPane.QUESTION_MESSAGE, null, botoes, botoes[0]);//questionamento da msg
         if (resposta == JOptionPane.YES_OPTION) {//valor de retorno de método de classe
@@ -150,7 +161,7 @@ public class JFPrincipal extends javax.swing.JFrame {
     private void RelDuplicataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelDuplicataActionPerformed
         try {
             JIFDuplicata T = new JIFDuplicata();
-           // T.setLocation(425, 150);
+            // T.setLocation(425, 150);
             JDesktop.add(T);
             T.setVisible(true);
             T.setPosicao();
@@ -161,7 +172,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 
     private void CadFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadFornecedorActionPerformed
         try {
-            JIFFornecedor T = new JIFFornecedor();
+            JIFCadastroFornecedor T = new JIFCadastroFornecedor();
             // T.setLocation(425, 150);
             JDesktop.add(T);
             T.setVisible(true);
@@ -184,7 +195,7 @@ public class JFPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_CadClienteActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-         try {
+        try {
             JIFAjuda T = new JIFAjuda();
             JDesktop.add(T);
             T.setVisible(true);
@@ -193,6 +204,17 @@ public class JFPrincipal extends javax.swing.JFrame {
             Logger.getLogger(JFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        try {
+            JIFCadastroProduto T = new JIFCadastroProduto();
+            JDesktop.add(T);
+            T.setVisible(true);
+            T.setPosicao();
+        } catch (Exception ex) {
+            Logger.getLogger(JFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,6 +258,7 @@ public class JFPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu jmCadastro;
     private javax.swing.JMenu jmRelatorios;
