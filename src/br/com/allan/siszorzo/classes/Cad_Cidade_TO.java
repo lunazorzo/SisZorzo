@@ -6,7 +6,7 @@ public class Cad_Cidade_TO {
     private String txt_nome_cidade;
     private Cad_Estado_TO cad_estado;
 
-    public Long getId_cod_cidade() {
+       public Long getId_cod_cidade() {
         return id_cod_cidade;
     }
 

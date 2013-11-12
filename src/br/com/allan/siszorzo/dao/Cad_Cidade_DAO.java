@@ -5,7 +5,9 @@ import br.com.allan.siszorzo.classes.Cad_Cidade_TO;
 import br.com.allan.siszorzo.conexao.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class Cad_Cidade_DAO {
 
@@ -33,7 +35,7 @@ public class Cad_Cidade_DAO {
         Conexao con = new Conexao();
         String sql = "UPDATE dbcidade SET txt_nome_cidade = ?, id_cod_estado = ? WHERE id_cod_cidade = ? ";
         con.prepararPst(sql);
-         con.setParam(1, tt.getTxt_nome_cidade());//passando a descrição
+        con.setParam(1, tt.getTxt_nome_cidade());//passando a descrição
         con.setParam(2, tt.getCad_estado().getId_cod_estado());
         con.setParam(3, tt.getId_cod_cidade());
         con.executarPst(con.ACAO_FECHAR);
@@ -63,4 +65,5 @@ public class Cad_Cidade_DAO {
         }
         return registros;
     }
+   
 }

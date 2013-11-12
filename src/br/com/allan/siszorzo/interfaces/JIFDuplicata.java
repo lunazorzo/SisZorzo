@@ -324,7 +324,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                     .addComponent(jtfValorExtenso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JBGerarDuplicata)
-                .addContainerGap())
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
