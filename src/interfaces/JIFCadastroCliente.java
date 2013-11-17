@@ -133,7 +133,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Cadastro de Cliente");
-        setFrameIcon(null);
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cliente.png"))); // NOI18N
         setPreferredSize(new java.awt.Dimension(728, 555));
 
         JLNomeRazao.setText("Nome/Razão:");
@@ -213,6 +213,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
 
         JLObservacao.setText("Observação:");
 
+        JBGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Salvar.png"))); // NOI18N
         JBGravar.setText("Gravar");
         JBGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -362,7 +363,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                         .addComponent(JLObservacao))
                     .addComponent(JDCDataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JBGravar)
                 .addContainerGap())

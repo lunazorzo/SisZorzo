@@ -66,9 +66,11 @@ public class JFPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jmCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cadastro.png"))); // NOI18N
         jmCadastro.setText("Cadastro");
 
         CadCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        CadCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cliente2.png"))); // NOI18N
         CadCliente.setText("Cliente");
         CadCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +80,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         jmCadastro.add(CadCliente);
 
         CadFornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
+        CadFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Fornecedor.png"))); // NOI18N
         CadFornecedor.setText("Fornecedor");
         CadFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +90,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         jmCadastro.add(CadFornecedor);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Produto.png"))); // NOI18N
         jMenuItem2.setText("Produto");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,9 +101,11 @@ public class JFPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jmCadastro);
 
+        jmRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Relatorios.png"))); // NOI18N
         jmRelatorios.setText("Relatórios");
 
         RelDuplicata.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, 0));
+        RelDuplicata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Duplicata_1.png"))); // NOI18N
         RelDuplicata.setText("Duplicata");
         RelDuplicata.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,9 +116,11 @@ public class JFPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jmRelatorios);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Suporte.png"))); // NOI18N
         jMenu1.setText("Suporte");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Ajuda.png"))); // NOI18N
         jMenuItem1.setText("Ajuda");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +141,7 @@ public class JFPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JDesktop, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(JDesktop, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
         );
 
         pack();

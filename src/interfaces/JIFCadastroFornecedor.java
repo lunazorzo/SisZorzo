@@ -136,7 +136,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Cadastro de Fornecedor");
-        setFrameIcon(null);
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Fornecedor.png"))); // NOI18N
         setPreferredSize(new java.awt.Dimension(728, 555));
 
         JLNomeRazao.setText("Nome/Razão:");
@@ -349,7 +349,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JLObservacao)
                 .addGap(1, 1, 1)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JBGravar)
                 .addContainerGap())

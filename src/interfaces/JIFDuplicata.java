@@ -125,7 +125,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Duplicata");
-        setFrameIcon(null);
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Duplicata_1.png"))); // NOI18N
         setPreferredSize(new java.awt.Dimension(690, 325));
 
         JLNomeRazao.setText("Nome/Razão:");
@@ -167,6 +167,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
+        JBGerarDuplicata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Duplicata.png"))); // NOI18N
         JBGerarDuplicata.setText("Gerar Impressão Duplicata");
         JBGerarDuplicata.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

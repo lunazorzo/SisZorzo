@@ -16,7 +16,7 @@ public class ClasseImagem  extends JDesktopPane {
     Image iiImagem;
     public ClasseImagem(String imagem) {
     try {
-              iiImagem = javax.imageio.ImageIO.read(getClass().getResource("/br/com/allan/siszorzo/imagens/Brazil_Flag.jpg"));
+              iiImagem = javax.imageio.ImageIO.read(getClass().getResource("/imagens/Brazil_Flag.jpg"));
         } catch (Exception ex) {
         }
     }

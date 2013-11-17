@@ -34,7 +34,7 @@ public class JIFAjuda extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Ajuda");
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Ajuda.png"))); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Ajuda.png"))); // NOI18N
 
         F2.setText("F2 - Cadastro de Clientes");
 
@@ -63,7 +63,7 @@ public class JIFAjuda extends javax.swing.JInternalFrame {
                 .addComponent(F3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(F9)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();

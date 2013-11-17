@@ -81,7 +81,7 @@ public class JIFCadastroProduto extends javax.swing.JInternalFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/allan/siszorzo/imagens/Salvar.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Salvar.png"))); // NOI18N
         jButton1.setText("Gravar");
 
         jLabel9.setText("Imagem:");
