@@ -34,9 +34,10 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
         initComponents();
         ga = new Tabela_Busca_Cliente_Duplicata();
         GradeBuscaCliente.setModel(ga);
-        BuscaCliente.setLocation(400, 207);//seta a localização da tela
         BuscaCliente.setMinimumSize(new Dimension(850, 500));//seta a dimensão/tamanho da tela
         BuscaCliente.setResizable(false);//desabilita a opção de maximizar
+        BuscaCliente.setLocationRelativeTo(null);//Seta o Frame centralizado
+
         carregaCombo();
     }
 
@@ -324,12 +325,13 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                     .addComponent(jtfValorExtenso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JBGerarDuplicata)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 //Seta a posição da tela para o centro.
+
     public void setPosicao() {
         Dimension d = this.getDesktopPane().getSize();
         this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);

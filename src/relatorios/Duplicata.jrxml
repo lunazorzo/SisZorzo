@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Duplicata" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="34"/>
+	<property name="ireport.y" value="178"/>
 	<parameter name="txt_nomerazaosocial" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -199,7 +199,7 @@ Inscrição Estadual 904.59365-60
 						<font size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Zorzo Insumos Agrícolas LTDA.
-(45) 3054.0415
+(45) 3053.0415
 (45) 9979.7999
 zorzoinsumos@gmail.com
 ]]></text>
@@ -549,7 +549,7 @@ LTDA. ou a sua ordem na praça e vencimento indicado.
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Zorzo Insumos Agrícolas LTDA.
-(45) 3054.0415
+(45) 3053.0415
 (45) 9979.7999
 zorzoinsumos@gmail.com
 ]]></text>
