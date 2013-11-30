@@ -7,8 +7,10 @@ package dao;
 import classes.Cad_Cliente_TO;
 import classes.Cad_Estado_TO;
 import conexao.Conexao;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 public class Cad_Cliente_DAO {
 
     private static Object instance;
+    public Connection con;
 
     public static void incluir(Cad_Cliente_TO to) throws Exception {
         Conexao con = new Conexao();
@@ -77,6 +80,7 @@ public class Cad_Cliente_DAO {
         return (Cad_Cliente_DAO) (instance == null ? instance = new Cad_Cliente_DAO() : instance);
     }
 
+//    http://javafree.uol.com.br/artigo/874102/Acessando-dados-com-Java-1%C2%BA-parte-Simples-Dao.html
     public ArrayList<Cad_Cliente_TO> buscar(String razaosocial) throws Exception {//listando para fazer a impressao na grade
         Conexao con = new Conexao();
         String sql = "SELECT * FROM dbcliente where txt_nomerazaosocial ILIKE ? ";//selecionando no banco passando o nome da tabela
@@ -105,8 +109,8 @@ public class Cad_Cliente_DAO {
             UserTemp.setTxt_observacao(rs.getString("txt_observacao"));
             Cad_Estado_TO ta = tadao.achar(rs.getLong("id_cod_estado"));
             UserTemp.setTxt_cidade(rs.getString("txt_cidade"));
+            System.out.println(rs);//Mostra a mensagem real do erro
             UserTemp.setCad_estado(ta);
-
             registros.add(UserTemp);
         }
         return registros;
@@ -137,7 +141,6 @@ public class Cad_Cliente_DAO {
             Cad_Estado_TO ta = tadao.achar(rs.getLong("id_cod_estado"));
             UserTemp.setTxt_cidade(rs.getString("txt_cidade"));
             UserTemp.setCad_estado(ta);
-
             registros.add(UserTemp);
         }
         return registros;

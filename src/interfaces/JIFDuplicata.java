@@ -14,10 +14,13 @@ import grades.Tabela_Busca_Cliente_Duplicata;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -67,7 +70,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
         jtfCidade = new javax.swing.JTextField();
         JLDataCadastro = new javax.swing.JLabel();
         JLCelular1 = new javax.swing.JLabel();
-        JFTLCelular1 = new javax.swing.JFormattedTextField();
+        jftlCelular1 = new javax.swing.JFormattedTextField();
         JBGerarDuplicata = new javax.swing.JButton();
         jlNumFaturaDuplicata = new javax.swing.JLabel();
         jtfNumFaturaDuplicata = new javax.swing.JTextField();
@@ -163,7 +166,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
         JLCelular1.setText("Celular:");
 
         try {
-            JFTLCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+            jftlCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -240,7 +243,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(JLCelular1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JFTLCelular1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jftlCelular1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel1)
@@ -310,7 +313,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(JLCelular1)
-                            .addComponent(JFTLCelular1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jftlCelular1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlNumFaturaDuplicata)
@@ -342,7 +345,8 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
             List l = Cad_Cliente_DAO.getInstance().buscarDuplicata(JTFNomeRazao.getText());  // passa a consulta feita pelo DAO       
             ga.setDados(l);
             GradeBuscaCliente.updateUI();
-        } catch (Throwable t) {
+        } catch (Exception ex) {
+            System.out.println(ex);//Mostra a mensagem real do erro
             JOptionPane.showMessageDialog(this, "Erro ao Buscar Cliente!");
         }
     }
@@ -358,19 +362,21 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
     }
 
     public void limparDados() {
-        JCBEstado.setSelectedItem(null);
-        jtfCidade.setText("");
-        JTFInscricaoEstadual.setText("");
         JTFNomeRazao.setText("");
         JTFCPFCNPJ.setText("");
         JTFInscricaoEstadual.setText("");
         JTFEndereco.setText("");
+        jtfNumero.setText("");
         JTFBairroDistrito.setText("");
         JFTLCEP.setText("");
+        JCBEstado.setSelectedItem(null);
         jtfCidade.setText("");
+        jftlCelular1.setText("");
         JDCDataVencimento.setDate(null);
-        JFTLCelular1.setText("");
-
+        jtfNumFaturaDuplicata.setText("");
+        jtfValorFatura.setText("");
+        jtfValorExtenso.setText("");
+        JTFNomeRazao.requestFocus(true);
     }
 
     private void JBGerarDuplicataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGerarDuplicataActionPerformed
@@ -389,7 +395,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
             Cad_Estado_TO estadoTmp = (Cad_Estado_TO) JCBEstado.getSelectedItem();
             map.put("txt_nome_estado", estadoTmp.getTxt_nome_estado());
             map.put("txt_cidade", jtfCidade.getText());
-            map.put("num_celular1", JFTLCelular1.getText());
+            map.put("num_celular1", jftlCelular1.getText());
             map.put("dt_vencimento", JDCDataVencimento.getDate());
             map.put("num_duplicata", jtfNumFaturaDuplicata.getText());
             map.put("num_valor_fatura", jtfValorFatura.getText());
@@ -400,6 +406,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
             JasperViewer jrviewer = new JasperViewer(jasperPrint, false);
             jrviewer.setVisible(true);
             jrviewer.toFront();
+            limparDados();
         } catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Preencha os dados!");
@@ -425,8 +432,10 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                     }
                 }
                 jtfCidade.setText(cad_cliente.getTxt_cidade());
+                jftlCelular1.setText(cad_cliente.getNum_celular1());
                 JDCDataVencimento.setDate(cad_cliente.getDt_datacadastro());
-                JFTLCelular1.setText(cad_cliente.getNum_celular1());
+                jftlCelular1.setText(cad_cliente.getNum_celular1());
+                System.out.println(jftlCelular1);//Mostra a mensagem real do erro
                 BuscaCliente.dispose();
             }
         } catch (Throwable t) {
@@ -459,7 +468,6 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox JCBEstado;
     private com.toedter.calendar.JDateChooser JDCDataVencimento;
     private javax.swing.JFormattedTextField JFTLCEP;
-    private javax.swing.JFormattedTextField JFTLCelular1;
     private javax.swing.JLabel JLBairroDistrito;
     private javax.swing.JLabel JLCEP;
     private javax.swing.JLabel JLCPFCNPJ;
@@ -476,6 +484,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
     private javax.swing.JTextField JTFNomeRazao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JFormattedTextField jftlCelular1;
     private javax.swing.JLabel jlNumFaturaDuplicata;
     private javax.swing.JLabel jlValorExtenso;
     private javax.swing.JLabel jlValorFatura;

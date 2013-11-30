@@ -363,7 +363,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                         .addComponent(JLObservacao))
                     .addComponent(JDCDataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JBGravar)
                 .addContainerGap())
@@ -404,7 +404,6 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
 
     public void limparDados() {
         JCBEstado.setSelectedItem(null);
-        jtfCidade.setText("");
         JTFInscricaoEstadual.setText("");
         JTFNomeRazao.setText("");
         JTFCPFCNPJ.setText("");
