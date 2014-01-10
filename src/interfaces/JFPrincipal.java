@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import classes.ClasseImagem;
+import javax.swing.JDesktopPane;
 
 /**
  *
@@ -263,4 +264,8 @@ public class JFPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jmCadastro;
     private javax.swing.JMenu jmRelatorios;
     // End of variables declaration//GEN-END:variables
+
+    private JDesktopPane getTelaDesktop() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

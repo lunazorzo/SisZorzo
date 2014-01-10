@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Duplicata" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="139"/>
+	<property name="ireport.y" value="168"/>
 	<parameter name="txt_nomerazaosocial" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -134,7 +134,7 @@
 				<text><![CDATA[Nome/Razão:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="254" y="170" width="19" height="20"/>
+				<reportElement x="254" y="130" width="19" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
@@ -237,11 +237,6 @@ importância acima que pagaremos à ZORZO INSUMOS AGRÍCOLAS
 LTDA. ou a sua ordem na praça e vencimento indicado.
 ]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="86" y="349" width="100" height="20"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($P{dt_vencimento})]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="14" y="349" width="73" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
@@ -457,11 +452,6 @@ Inscrição Estadual 904.59365-60]]></text>
 				</textElement>
 				<text><![CDATA[Nº Duplicata:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="86" y="756" width="100" height="20"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($P{dt_vencimento})]]></textFieldExpression>
-			</textField>
 			<textField>
 				<reportElement x="273" y="577" width="27" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
@@ -703,6 +693,21 @@ zorzoinsumos@gmail.com
 					<pen lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="87" y="349" width="100" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="87" y="756" width="100" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="150" width="51" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{num_numero}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>

@@ -17,6 +17,8 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="JBBuscaCliente" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="JBFechar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -28,9 +30,14 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="412" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="JBBuscaCliente" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="JBBuscaCliente" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JBFechar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -38,7 +45,10 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="JBBuscaCliente">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Selecionar o Cliente Desejado"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/Selecinar.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Selecionar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBBuscaClienteActionPerformed"/>
@@ -65,6 +75,17 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="JBFechar">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/Fechar.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Fechar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBFecharActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </NonVisualComponents>
@@ -151,7 +172,7 @@
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="JLNumero" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jtfNumero" max="32767" attributes="0"/>
                                       </Group>
@@ -210,7 +231,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JLEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JTFEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLNumero" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtfNumero" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -359,9 +380,9 @@
     <Component class="javax.swing.JButton" name="JBGerarDuplicata">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/Duplicata.png"/>
+          <Image iconType="3" name="/imagens/Impress&#xe3;o.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Gerar Impress&#xe3;o Duplicata"/>
+        <Property name="toolTipText" type="java.lang.String" value="Gerar Impress&#xe3;o da Duplicata"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBGerarDuplicataActionPerformed"/>
@@ -396,7 +417,7 @@
         <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="JLNumero">
       <Properties>
         <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
       </Properties>

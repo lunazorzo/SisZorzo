@@ -14,13 +14,10 @@ import grades.Tabela_Busca_Cliente_Duplicata;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.net.URL;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -38,7 +35,8 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
         ga = new Tabela_Busca_Cliente_Duplicata();
         GradeBuscaCliente.setModel(ga);
         BuscaCliente.setMinimumSize(new Dimension(850, 500));//seta a dimensão/tamanho da tela
-        BuscaCliente.setResizable(false);//desabilita a opção de maximizar
+      //  BuscaCliente.setResizable(false);//desabilita a opção de maximizar
+        BuscaCliente.setUndecorated(true); //desabilita a barra de Título 
         BuscaCliente.setLocationRelativeTo(null);//Seta o Frame centralizado
 
         carregaCombo();
@@ -52,6 +50,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
         JBBuscaCliente = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         GradeBuscaCliente = new javax.swing.JTable();
+        JBFechar = new javax.swing.JButton();
         JLNomeRazao = new javax.swing.JLabel();
         JTFNomeRazao = new javax.swing.JTextField();
         JLCPFCNPJ = new javax.swing.JLabel();
@@ -79,12 +78,13 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
         jlValorExtenso = new javax.swing.JLabel();
         jtfValorExtenso = new javax.swing.JTextField();
         JDCDataVencimento = new com.toedter.calendar.JDateChooser();
-        jLabel1 = new javax.swing.JLabel();
+        JLNumero = new javax.swing.JLabel();
         jtfNumero = new javax.swing.JTextField();
 
         BuscaCliente.setTitle("Busca de Cliente");
 
-        JBBuscaCliente.setText("Selecionar o Cliente Desejado");
+        JBBuscaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Selecinar.png"))); // NOI18N
+        JBBuscaCliente.setToolTipText("Selecionar");
         JBBuscaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBBuscaClienteActionPerformed(evt);
@@ -104,6 +104,14 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(GradeBuscaCliente);
 
+        JBFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Fechar.png"))); // NOI18N
+        JBFechar.setToolTipText("Fechar");
+        JBFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBFecharActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BuscaClienteLayout = new javax.swing.GroupLayout(BuscaCliente.getContentPane());
         BuscaCliente.getContentPane().setLayout(BuscaClienteLayout);
         BuscaClienteLayout.setHorizontalGroup(
@@ -114,7 +122,9 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscaClienteLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JBBuscaCliente)))
+                        .addComponent(JBBuscaCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JBFechar)))
                 .addContainerGap())
         );
         BuscaClienteLayout.setVerticalGroup(
@@ -122,9 +132,12 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
             .addGroup(BuscaClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JBBuscaCliente)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BuscaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JBBuscaCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(BuscaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JBFechar)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         setClosable(true);
@@ -151,11 +164,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
 
         JLCEP.setText("CEP:");
 
-        try {
-            JFTLCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        JFTLCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
 
         JLEstado.setText("Estado:");
 
@@ -165,14 +174,10 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
 
         JLCelular1.setText("Celular:");
 
-        try {
-            jftlCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        jftlCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
 
-        JBGerarDuplicata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Duplicata.png"))); // NOI18N
-        JBGerarDuplicata.setText("Gerar Impressão Duplicata");
+        JBGerarDuplicata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Impressão.png"))); // NOI18N
+        JBGerarDuplicata.setToolTipText("Gerar Impressão da Duplicata");
         JBGerarDuplicata.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBGerarDuplicataActionPerformed(evt);
@@ -193,7 +198,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
 
         JDCDataVencimento.setDateFormatString("dd/MM/yyyy");
 
-        jLabel1.setText("Número:");
+        JLNumero.setText("Número:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -246,7 +251,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                                         .addComponent(jftlCelular1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel1)
+                                            .addComponent(JLNumero)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jtfNumero))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -288,7 +293,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLEndereco)
                     .addComponent(JTFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
+                    .addComponent(JLNumero)
                     .addComponent(jtfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,7 +387,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
     private void JBGerarDuplicataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGerarDuplicataActionPerformed
 
         try {
-            URL arquivo = getClass().getResource("/relatorios/Duplicata.jasper");
+            URL arquivo = getClass().getResource("/relatorios/Duplicata.jasper");//Pega o arquivo criado no IReport
             Map<String, Object> map = new HashMap<>();
             map.put("txt_nomerazaosocial", JTFNomeRazao.getText());
             map.put("num_cpfcnpj", JTFCPFCNPJ.getText());
@@ -408,7 +413,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
             jrviewer.toFront();
             limparDados();
         } catch (Exception ex) {
-            ex.printStackTrace();
+           // ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Preencha os dados!");
         }
     }//GEN-LAST:event_JBGerarDuplicataActionPerformed
@@ -441,7 +446,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
         } catch (Throwable t) {
             JOptionPane.showMessageDialog(null, "Erro ao Carregar lista de Clientes!");
             limparDados();
-            t.printStackTrace();
+           // t.printStackTrace();
         }
     }//GEN-LAST:event_JBBuscaClienteActionPerformed
 
@@ -459,10 +464,17 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
         String extenso = Util.valorPorExtenso(valor);
         jtfValorExtenso.setText(extenso);
     }//GEN-LAST:event_jtfValorFaturaKeyReleased
+
+    private void JBFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFecharActionPerformed
+        BuscaCliente.dispose();
+        limparDados();
+    }//GEN-LAST:event_JBFecharActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame BuscaCliente;
     private javax.swing.JTable GradeBuscaCliente;
     private javax.swing.JButton JBBuscaCliente;
+    private javax.swing.JButton JBFechar;
     private javax.swing.JButton JBGerarDuplicata;
     private javax.swing.JLabel JBIncricaoEstadual;
     private javax.swing.JComboBox JCBEstado;
@@ -477,12 +489,12 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
     private javax.swing.JLabel JLEndereco;
     private javax.swing.JLabel JLEstado;
     private javax.swing.JLabel JLNomeRazao;
+    private javax.swing.JLabel JLNumero;
     private javax.swing.JTextField JTFBairroDistrito;
     private javax.swing.JTextField JTFCPFCNPJ;
     private javax.swing.JTextField JTFEndereco;
     private javax.swing.JTextField JTFInscricaoEstadual;
     private javax.swing.JTextField JTFNomeRazao;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JFormattedTextField jftlCelular1;
     private javax.swing.JLabel jlNumFaturaDuplicata;

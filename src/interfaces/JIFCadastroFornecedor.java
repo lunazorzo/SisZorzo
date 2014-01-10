@@ -6,6 +6,7 @@ package interfaces;
 
 import classes.Cad_Estado_TO;
 import classes.Cad_Fornecedor_TO;
+import classes.UpperCaseField;
 import dao.Cad_Estado_DAO;
 import dao.Cad_Fornecedor_DAO;
 import grades.Tabela_Busca_Fornecedor;
@@ -32,11 +33,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
         initComponents();
         ga = new Tabela_Busca_Fornecedor();
         GradeBuscaFornecedor.setModel(ga);
-
-//        BuscaCliente.setMaximumSize(null);//JFrame no meio da tela
-//        BuscaCliente.setLocation(400, 207);//seta a localização da tela
-        BuscaFornecedor.setMinimumSize(new Dimension(850, 500));//seta a dimensão/tamanho da tela
-        BuscaFornecedor.setResizable(false);//desabilita a opção de maximizar
+        BuscaFornecedor.setMinimumSize(new Dimension(850, 520));//seta a dimensão/tamanho da tela
         BuscaFornecedor.setLocationRelativeTo(null);//Seta o Frame centralizado
         carregaCombo();
         dataHohe();
@@ -52,29 +49,30 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         BuscaFornecedor = new javax.swing.JFrame();
-        JBBuscaFornecedor = new javax.swing.JButton();
+        JBSelecionaGrade = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         GradeBuscaFornecedor = new javax.swing.JTable();
+        JBFecharBusca = new javax.swing.JButton();
         JLNomeRazao = new javax.swing.JLabel();
-        JTFNomeRazao = new javax.swing.JTextField();
+        JTFNomeRazao = new UpperCaseField(); ;
         JLCPFCNPJ = new javax.swing.JLabel();
-        JTFCPFCNPJ = new javax.swing.JTextField();
+        JTFCPFCNPJ = new UpperCaseField(); ;
         JBCNPJCPF = new javax.swing.JButton();
         JBIncricaoEstadual = new javax.swing.JLabel();
         JTFInscricaoEstadual = new javax.swing.JTextField();
         JLEMAIL = new javax.swing.JLabel();
         JLEndereco = new javax.swing.JLabel();
-        JTFEndereco = new javax.swing.JTextField();
+        JTFEndereco = new UpperCaseField(); ;
         JLBairroDistrito = new javax.swing.JLabel();
-        JTFBairroDistrito = new javax.swing.JTextField();
+        JTFBairroDistrito = new UpperCaseField(); ;
         JLNumero = new javax.swing.JLabel();
-        JTFNumero = new javax.swing.JTextField();
+        JTFNumero = new UpperCaseField(); ;
         JLCEP = new javax.swing.JLabel();
         JFTLCEP = new javax.swing.JFormattedTextField();
         JLEstado = new javax.swing.JLabel();
         JCBEstado = new javax.swing.JComboBox();
         JLCidade = new javax.swing.JLabel();
-        jtfCidade = new javax.swing.JTextField();
+        JTFCidade = new UpperCaseField(); ;
         JLDataCadastro = new javax.swing.JLabel();
         JLTelefone = new javax.swing.JLabel();
         JFTLTelefone = new javax.swing.JFormattedTextField();
@@ -86,15 +84,18 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
         JBGravar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTAObervacao = new javax.swing.JEditorPane();
-        JTFEmail = new javax.swing.JTextField();
+        JTFEmail = new UpperCaseField(); ;
         JDCDataCadastro = new com.toedter.calendar.JDateChooser();
 
-        BuscaFornecedor.setTitle("Busca de Cliente");
+        BuscaFornecedor.setTitle("Busca de Fornecedor");
+        BuscaFornecedor.setUndecorated(true);
+        BuscaFornecedor.setResizable(false);
 
-        JBBuscaFornecedor.setText("Selecionar o Fornecedor Desejado");
-        JBBuscaFornecedor.addActionListener(new java.awt.event.ActionListener() {
+        JBSelecionaGrade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Selecinar.png"))); // NOI18N
+        JBSelecionaGrade.setToolTipText("Selecionar");
+        JBSelecionaGrade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBBuscaFornecedorActionPerformed(evt);
+                JBSelecionaGradeActionPerformed(evt);
             }
         });
 
@@ -111,26 +112,38 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(GradeBuscaFornecedor);
 
+        JBFecharBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Fechar.png"))); // NOI18N
+        JBFecharBusca.setToolTipText("Fechar");
+        JBFecharBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBFecharBuscaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BuscaFornecedorLayout = new javax.swing.GroupLayout(BuscaFornecedor.getContentPane());
         BuscaFornecedor.getContentPane().setLayout(BuscaFornecedorLayout);
         BuscaFornecedorLayout.setHorizontalGroup(
             BuscaFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BuscaFornecedorLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscaFornecedorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(BuscaFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscaFornecedorLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JBBuscaFornecedor)))
+                .addGroup(BuscaFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(BuscaFornecedorLayout.createSequentialGroup()
+                        .addGap(0, 636, Short.MAX_VALUE)
+                        .addComponent(JBSelecionaGrade)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JBFecharBusca)))
                 .addContainerGap())
         );
         BuscaFornecedorLayout.setVerticalGroup(
             BuscaFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BuscaFornecedorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBBuscaFornecedor)
+                .addGroup(BuscaFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JBSelecionaGrade)
+                    .addComponent(JBFecharBusca))
                 .addContainerGap())
         );
 
@@ -208,7 +221,6 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
         JLObservacao.setText("Observação:");
 
         JBGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Salvar.png"))); // NOI18N
-        JBGravar.setText("Gravar");
         JBGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBGravarActionPerformed(evt);
@@ -257,7 +269,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
                         .addGap(3, 3, 3)
                         .addComponent(JLCidade)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfCidade)
+                        .addComponent(JTFCidade)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JLDataCadastro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -336,7 +348,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
                             .addComponent(JCBEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JLCidade)
                             .addComponent(JLDataCadastro)
-                            .addComponent(jtfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(JTFCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(JDCDataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -386,7 +398,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
 
     public void limparDados() {
         JCBEstado.setSelectedItem(null);
-        jtfCidade.setText("");
+        JTFCidade.setText("");
         JTFInscricaoEstadual.setText("");
         JTFNomeRazao.setText("");
         JTFCPFCNPJ.setText("");
@@ -396,7 +408,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
         JTFBairroDistrito.setText("");
         JTFNumero.setText("");
         JFTLCEP.setText("");
-        jtfCidade.setText("");
+        JTFCidade.setText("");
         JDCDataCadastro.setDate(null);
         JFTLTelefone.setText("");
         JFTLCelular1.setText("");
@@ -410,6 +422,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
     public void dataHohe() {
         JDCDataCadastro.setDate(new java.util.Date());
     }
+
     private void JBCNPJCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCNPJCPFActionPerformed
         //Abrindo o site da receita para a consulta CNPJ quando clicado no botão de busca
         Desktop desktop = null;
@@ -441,7 +454,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
                 t.setNum_numero(JTFNumero.getText());
                 t.setNum_cep(JFTLCEP.getText());
                 t.setCad_estado((Cad_Estado_TO) JCBEstado.getSelectedItem());
-                t.setTxt_cidade(jtfCidade.getText());
+                t.setTxt_cidade(JTFCidade.getText());
                 t.setDt_datacadastro(JDCDataCadastro.getDate());
                 t.setNum_telefone(JFTLTelefone.getText());
                 t.setNum_celular1(JFTLCelular1.getText());
@@ -459,7 +472,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
                 cad_fornecedor.setNum_numero(JTFNumero.getText());
                 cad_fornecedor.setNum_cep(JFTLCEP.getText());
                 cad_fornecedor.setCad_estado((Cad_Estado_TO) JCBEstado.getSelectedItem());
-                cad_fornecedor.setTxt_cidade(jtfCidade.getText());
+                cad_fornecedor.setTxt_cidade(JTFCidade.getText());
                 cad_fornecedor.setDt_datacadastro(JDCDataCadastro.getDate());
                 cad_fornecedor.setNum_telefone(JFTLTelefone.getText());
                 cad_fornecedor.setNum_celular1(JFTLCelular1.getText());
@@ -477,7 +490,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_JBGravarActionPerformed
 
-    private void JBBuscaFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscaFornecedorActionPerformed
+    private void JBSelecionaGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSelecionaGradeActionPerformed
         try {
             //pegando a opção selecionada na grade
             cad_fornecedor = (Cad_Fornecedor_TO) ga.getDadoAt(GradeBuscaFornecedor.getSelectedRow());
@@ -497,7 +510,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
                         break;
                     }
                 }
-                jtfCidade.setText(cad_fornecedor.getTxt_cidade());
+                JTFCidade.setText(cad_fornecedor.getTxt_cidade());
                 JDCDataCadastro.setDate(cad_fornecedor.getDt_datacadastro());
                 JFTLTelefone.setText(cad_fornecedor.getNum_telefone());
                 JFTLCelular1.setText(cad_fornecedor.getNum_celular1());
@@ -511,7 +524,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
             limparDados();
             t.printStackTrace();
         }
-    }//GEN-LAST:event_JBBuscaFornecedorActionPerformed
+    }//GEN-LAST:event_JBSelecionaGradeActionPerformed
 
     private void JTFNomeRazaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFNomeRazaoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -519,13 +532,19 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
             BuscaFornecedor.show();
         }
     }//GEN-LAST:event_JTFNomeRazaoKeyPressed
+
+    private void JBFecharBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFecharBuscaActionPerformed
+        BuscaFornecedor.dispose();
+        limparDados();
+    }//GEN-LAST:event_JBFecharBuscaActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame BuscaFornecedor;
     private javax.swing.JTable GradeBuscaFornecedor;
-    private javax.swing.JButton JBBuscaFornecedor;
     private javax.swing.JButton JBCNPJCPF;
+    private javax.swing.JButton JBFecharBusca;
     private javax.swing.JButton JBGravar;
     private javax.swing.JLabel JBIncricaoEstadual;
+    private javax.swing.JButton JBSelecionaGrade;
     private javax.swing.JComboBox JCBEstado;
     private com.toedter.calendar.JDateChooser JDCDataCadastro;
     private javax.swing.JFormattedTextField JFTLCEP;
@@ -549,6 +568,7 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
     private javax.swing.JEditorPane JTAObervacao;
     private javax.swing.JTextField JTFBairroDistrito;
     private javax.swing.JTextField JTFCPFCNPJ;
+    private javax.swing.JTextField JTFCidade;
     private javax.swing.JTextField JTFEmail;
     private javax.swing.JTextField JTFEndereco;
     private javax.swing.JTextField JTFInscricaoEstadual;
@@ -556,6 +576,5 @@ public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
     private javax.swing.JTextField JTFNumero;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jtfCidade;
     // End of variables declaration//GEN-END:variables
 }

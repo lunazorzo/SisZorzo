@@ -6,6 +6,7 @@ package interfaces;
 
 import classes.Cad_Cliente_TO;
 import classes.Cad_Estado_TO;
+import classes.UpperCaseField;
 import dao.Cad_Cliente_DAO;
 import dao.Cad_Estado_DAO;
 import grades.Tabela_Busca_Cliente;
@@ -32,13 +33,14 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
         initComponents();
         ga = new Tabela_Busca_Cliente();
         GradeBuscaCliente.setModel(ga);
-//        BuscaCliente.setMaximumSize(null);//JFrame no meio da tela
-//        BuscaCliente.setLocation(400, 207);//seta a localização da tela
-        BuscaCliente.setMinimumSize(new Dimension(850, 500));//seta a dimensão/tamanho da tela
-        BuscaCliente.setResizable(false);//desabilita a opção de maximizar
+        BuscaCliente.setMinimumSize(new Dimension(850, 520));//seta a dimensão/tamanho da tela
         BuscaCliente.setLocationRelativeTo(null);//Seta o Frame centralizado
         carregaCombo();
         dataHohe();
+    }
+
+    JIFCadastroCliente(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @SuppressWarnings("unchecked")
@@ -49,30 +51,31 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
         JBBuscaCliente = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         GradeBuscaCliente = new javax.swing.JTable();
+        JBFechar = new javax.swing.JButton();
         JLNomeRazao = new javax.swing.JLabel();
-        JTFNomeRazao = new javax.swing.JTextField();
+        JTFNomeRazao = new UpperCaseField(); ;
         JLCPFCNPJ = new javax.swing.JLabel();
-        JTFCPFCNPJ = new javax.swing.JTextField();
+        JTFCPFCNPJ = new UpperCaseField(); ;
         JBCNPJCPF = new javax.swing.JButton();
         JBIncricaoEstadual = new javax.swing.JLabel();
-        JTFInscricaoEstadual = new javax.swing.JTextField();
+        JTFInscricaoEstadual = new UpperCaseField(); ;
         JLCADPRO = new javax.swing.JLabel();
-        JTFCADPRO = new javax.swing.JTextField();
+        JTFCADPRO = new UpperCaseField(); ;
         JBSintegra = new javax.swing.JButton();
         JLEMAIL = new javax.swing.JLabel();
-        JTFEmail = new javax.swing.JTextField();
+        JTFEmail = new UpperCaseField(); ;
         JLEndereco = new javax.swing.JLabel();
-        JTFEndereco = new javax.swing.JTextField();
+        JTFEndereco = new UpperCaseField(); ;
         JLBairroDistrito = new javax.swing.JLabel();
-        JTFBairroDistrito = new javax.swing.JTextField();
+        JTFBairroDistrito = new UpperCaseField(); ;
         JLNumero = new javax.swing.JLabel();
-        JTFNumero = new javax.swing.JTextField();
+        JTFNumero = new UpperCaseField(); ;
         JLCEP = new javax.swing.JLabel();
         JFTLCEP = new javax.swing.JFormattedTextField();
         JLEstado = new javax.swing.JLabel();
         JCBEstado = new javax.swing.JComboBox();
         JLCidade = new javax.swing.JLabel();
-        jtfCidade = new javax.swing.JTextField();
+        jtfCidade = new UpperCaseField(); ;
         JLDataCadastro = new javax.swing.JLabel();
         JLTelefone = new javax.swing.JLabel();
         JFTLTelefone = new javax.swing.JFormattedTextField();
@@ -87,8 +90,10 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
         JDCDataCadastro = new com.toedter.calendar.JDateChooser();
 
         BuscaCliente.setTitle("Busca de Cliente");
+        BuscaCliente.setUndecorated(true);
 
-        JBBuscaCliente.setText("Selecionar o Cliente Desejado");
+        JBBuscaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Selecinar.png"))); // NOI18N
+        JBBuscaCliente.setToolTipText("Selecionar");
         JBBuscaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBBuscaClienteActionPerformed(evt);
@@ -108,6 +113,14 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(GradeBuscaCliente);
 
+        JBFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Fechar.png"))); // NOI18N
+        JBFechar.setToolTipText("Selecionar");
+        JBFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBFecharActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BuscaClienteLayout = new javax.swing.GroupLayout(BuscaCliente.getContentPane());
         BuscaCliente.getContentPane().setLayout(BuscaClienteLayout);
         BuscaClienteLayout.setHorizontalGroup(
@@ -118,7 +131,9 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscaClienteLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JBBuscaCliente)))
+                        .addComponent(JBBuscaCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JBFechar)))
                 .addContainerGap())
         );
         BuscaClienteLayout.setVerticalGroup(
@@ -127,7 +142,9 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBBuscaCliente)
+                .addGroup(BuscaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JBBuscaCliente)
+                    .addComponent(JBFechar))
                 .addContainerGap())
         );
 
@@ -214,7 +231,6 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
         JLObservacao.setText("Observação:");
 
         JBGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Salvar.png"))); // NOI18N
-        JBGravar.setText("Gravar");
         JBGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBGravarActionPerformed(evt);
@@ -524,6 +540,12 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                 JTFBairroDistrito.setText(cad_cliente.getTxt_bairrodistrito());
                 JTFNumero.setText(cad_cliente.getNum_numero());
                 JFTLCEP.setText(cad_cliente.getNum_cep());
+                jtfCidade.setText(cad_cliente.getTxt_cidade());
+                JDCDataCadastro.setDate(cad_cliente.getDt_datacadastro());
+                JFTLTelefone.setText(cad_cliente.getNum_telefone());
+                JFTLCelular1.setText(cad_cliente.getNum_celular1());
+                JFTLCelular2.setText(cad_cliente.getNum_celular2());
+                JTAObervacao.setText(cad_cliente.getTxt_observacao());
 
                 for (int i = 1; i < JCBEstado.getItemCount(); i++) {
                     if (((Cad_Estado_TO) JCBEstado.getItemAt(i)).getId_cod_estado() == cad_cliente.getCad_estado().getId_cod_estado()) {
@@ -531,12 +553,7 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                         break;
                     }
                 }
-                jtfCidade.setText(cad_cliente.getTxt_cidade());
-                JDCDataCadastro.setDate(cad_cliente.getDt_datacadastro());
-                JFTLTelefone.setText(cad_cliente.getNum_telefone());
-                JFTLCelular1.setText(cad_cliente.getNum_celular1());
-                JFTLCelular2.setText(cad_cliente.getNum_celular2());
-                JTAObervacao.setText(cad_cliente.getTxt_observacao());
+
                 BuscaCliente.dispose();
             }
         } catch (Throwable t) {
@@ -547,16 +564,23 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JBBuscaClienteActionPerformed
 
     private void JTFNomeRazaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFNomeRazaoKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {            
             carregaTabelaClientes();
+            limparDados();
             BuscaCliente.show();
         }
     }//GEN-LAST:event_JTFNomeRazaoKeyPressed
+
+    private void JBFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFecharActionPerformed
+        BuscaCliente.dispose();
+        limparDados();
+    }//GEN-LAST:event_JBFecharActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame BuscaCliente;
     private javax.swing.JTable GradeBuscaCliente;
     private javax.swing.JButton JBBuscaCliente;
     private javax.swing.JButton JBCNPJCPF;
+    private javax.swing.JButton JBFechar;
     private javax.swing.JButton JBGravar;
     private javax.swing.JLabel JBIncricaoEstadual;
     private javax.swing.JButton JBSintegra;

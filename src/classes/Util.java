@@ -7,6 +7,11 @@ package classes;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.JDesktopPane;
+import javax.swing.JTextField;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+import javax.swing.text.PlainDocument;
 
 /**
  *
@@ -176,4 +181,5 @@ class ClasseImagemII extends JDesktopPane {
         super.paintComponent(g);
         g.drawImage(iiImagem, 0, 0, this.getWidth(), this.getHeight(), this);
     }
+
 }
