@@ -4,6 +4,8 @@
  */
 package interfaces;
 
+import classes.Cad_Cliente_TO;
+import classes.Cad_Estado_TO;
 import classes.Cad_Fornecedor_TO;
 import classes.Cad_Produto_TO;
 import classes.Cad_Unidade_Medida_TO;
@@ -307,6 +309,7 @@ public final class JIFCadastroProduto extends javax.swing.JInternalFrame {
                 cad_produto.setValor_compra(JTFValorCompra.getText());
                 cad_produto.setValor_venda(JTFValorVenda.getText());
                 cad_produto.setObservacao(JEPObservacao.getText());
+                Cad_Produto_DAO.alterar(cad_produto);//passando o objeto criado
                 JOptionPane.showMessageDialog(this, "Cadastro alterado com Sucesso!");
             }
             carregaComboUnidadeMedidade();
@@ -327,6 +330,35 @@ public final class JIFCadastroProduto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JTFNomeKeyPressed
 
     private void JBBuscaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBuscaProdutoActionPerformed
+        try {
+            //pegando a opção selecionada na grade
+            cad_produto = (Cad_Produto_TO) gradeproduto.getDadoAt(GradeBuscaProduto.getSelectedRow());
+            if (cad_produto != null) {
+                JTFNome.setText(cad_produto.getTxt_produto());
+                JTFNCM.setText(cad_produto.getNCM());
+                JTFValorCompra.setText(cad_produto.getValor_compra());
+                JTFValorVenda.setText(cad_produto.getValor_venda());
+                JEPObservacao.setText(cad_produto.getObservacao());
+                for (int i = 1; i < JCBFornecedor.getItemCount(); i++) {
+                    if (((Cad_Fornecedor_TO) JCBFornecedor.getItemAt(i)).getId_cod_cliente() == cad_produto.getCad_fornecedor().getId_cod_cliente()) {
+                        JCBFornecedor.setSelectedIndex(i);
+                        break;
+                    }
+
+                }
+                for (int i = 1; i < JCBUnidadeMedida.getItemCount(); i++) {
+                    if (((Cad_Unidade_Medida_TO) JCBUnidadeMedida.getItemAt(i)).getId_cod_unidade_medida() == cad_produto.getCad_unidade_medida().getId_cod_unidade_medida()) {
+                        JCBUnidadeMedida.setSelectedIndex(i);
+                        break;
+                    }
+                }
+                BuscaProduto.dispose();
+            }
+        } catch (Throwable t) {
+            JOptionPane.showMessageDialog(null, "Erro ao Carregar lista de Produtos!");
+            limparDados();
+            t.printStackTrace();
+        }
     }//GEN-LAST:event_JBBuscaProdutoActionPerformed
 
     private void JBFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFecharActionPerformed

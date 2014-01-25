@@ -38,11 +38,28 @@ public class Cad_Produto_DAO {
         con.executarPst(Conexao.ACAO_FECHAR);//confirma a intrução recebida, grava no banco e fechando a conexao
     }
 
-    public ArrayList<Cad_Produto_TO> buscar(String nome) throws Exception {//listando para fazer a impressao na grade
+    public static void alterar(Cad_Produto_TO up) throws Exception {
+        Conexao con = new Conexao();
+        String sql;
+        sql = "UPDATE dbproduto SET txt_NCM=?, id_cod_unidadenumerica=?, id_cod_fornecedor=?, txt_nomeproduto=?, num_valorcompra=?, num_valorvenda=?, txt_observacao=?"
+                + " WHERE id_cod_produto=?";
+        con.prepararPst(sql);
+        con.setParam(1, up.getNCM());
+        con.setParam(2, up.getCad_unidade_medida().getId_cod_unidade_medida());
+        con.setParam(3, up.getCad_fornecedor().getId_cod_cliente());
+        con.setParam(4, up.getTxt_produto());
+        con.setParam(5, up.getValor_compra());
+        con.setParam(6, up.getValor_venda());
+        con.setParam(7, up.getObservacao());
+        con.setParam(8, up.getId_cod_produto());
+        con.executarPst(Conexao.ACAO_FECHAR);
+    }
+
+    public ArrayList<Cad_Produto_TO> buscar(String nomeproduto) throws Exception {//listando para fazer a impressao na grade
         Conexao con = new Conexao();
         String sql = "SELECT * FROM dbproduto where txt_nomeproduto ILIKE ?";//selecionando no banco passando o nome da tabela
         PreparedStatement ps = con.getCon().prepareStatement(sql);
-        ps.setString(1, "%" + nome + "%");
+        ps.setString(1, "%" + nomeproduto + "%");
         ResultSet rs = ps.executeQuery();
         ArrayList<Cad_Produto_TO> registros = new ArrayList<>();
         Cad_Produto_TO UserTemp;
