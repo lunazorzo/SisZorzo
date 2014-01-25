@@ -31,6 +31,7 @@ public class JIFAjuda extends javax.swing.JInternalFrame {
         F2 = new javax.swing.JLabel();
         F3 = new javax.swing.JLabel();
         F9 = new javax.swing.JLabel();
+        F10 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Ajuda");
@@ -40,7 +41,9 @@ public class JIFAjuda extends javax.swing.JInternalFrame {
 
         F3.setText("F3 - Cadastro de Fornecedores");
 
-        F9.setText("F9 - Impressão de Duplicatas");
+        F9.setText("F4 - Cadastro de Produtos");
+
+        F10.setText("F9 - Impressão de Duplicatas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -51,8 +54,9 @@ public class JIFAjuda extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(F3)
                     .addComponent(F2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(F9, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(F9, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(F10, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,12 +67,15 @@ public class JIFAjuda extends javax.swing.JInternalFrame {
                 .addComponent(F3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(F9)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(F10)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel F10;
     private javax.swing.JLabel F2;
     private javax.swing.JLabel F3;
     private javax.swing.JLabel F9;

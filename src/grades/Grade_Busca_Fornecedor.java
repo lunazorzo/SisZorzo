@@ -9,7 +9,7 @@ import classes.Cad_Fornecedor_TO;
  *
  * @author Allan
  */
-public class Tabela_Busca_Fornecedor extends ModeloTabelaBase {
+public class Grade_Busca_Fornecedor extends Modelo_Grade_Base {
 
     public Object getValueAt(int rowIndex, int columnIndex) {
         if (dados != null && rowIndex < dados.size()) {

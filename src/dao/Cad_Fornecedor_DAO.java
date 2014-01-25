@@ -104,7 +104,6 @@ public class Cad_Fornecedor_DAO {
             Cad_Estado_TO ta = tadao.achar(rs.getLong("id_cod_estado"));
             UserTemp.setTxt_cidade(rs.getString("txt_cidade"));
             UserTemp.setCad_estado(ta);
-
             registros.add(UserTemp);
         }
         return registros;
@@ -154,5 +153,24 @@ public class Cad_Fornecedor_DAO {
         }
         rs.close();
         return adubacaoTemp;
+    }
+
+    
+    //está sendo usado na tala de cadastro dos produtos combox
+    public ArrayList<Cad_Fornecedor_TO> buscarFornecedor() throws Exception {//listando para fazer a impressao na grade
+        Conexao con = new Conexao();
+        String sql = "SELECT * FROM dbfornecedor";//selecionando no banco passando o nome da tabela
+        PreparedStatement ps = con.getCon().prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        ArrayList<Cad_Fornecedor_TO> registros = new ArrayList<Cad_Fornecedor_TO>();
+        Cad_Fornecedor_TO utilTemp;
+        while (rs.next()) {
+            utilTemp = new Cad_Fornecedor_TO();
+            utilTemp.setId_cod_cliente(rs.getLong("id_cod_fornecedor"));//pasando a id
+            utilTemp.setTxt_nomerazaosocial(rs.getString("txt_nomerazaosocial"));
+            registros.add(utilTemp);
+        }
+        return registros;
     }
 }

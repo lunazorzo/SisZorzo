@@ -10,7 +10,7 @@ import classes.Util;
 import conexao.Conexao;
 import dao.Cad_Cliente_DAO;
 import dao.Cad_Estado_DAO;
-import grades.Tabela_Busca_Cliente_Duplicata;
+import grades.Grade_Busca_Cliente_Duplicata;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.net.URL;
@@ -28,11 +28,11 @@ import net.sf.jasperreports.view.JasperViewer;
 public final class JIFDuplicata extends javax.swing.JInternalFrame {
 
     private Cad_Cliente_TO cad_cliente;
-    Tabela_Busca_Cliente_Duplicata ga;
+    Grade_Busca_Cliente_Duplicata ga;
 
     public JIFDuplicata() throws Exception {
         initComponents();
-        ga = new Tabela_Busca_Cliente_Duplicata();
+        ga = new Grade_Busca_Cliente_Duplicata();
         GradeBuscaCliente.setModel(ga);
         BuscaCliente.setMinimumSize(new Dimension(850, 500));//seta a dimensão/tamanho da tela
       //  BuscaCliente.setResizable(false);//desabilita a opção de maximizar
@@ -135,8 +135,7 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(BuscaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JBBuscaCliente, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(BuscaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(JBFechar)))
+                    .addComponent(JBFechar))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -164,7 +163,11 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
 
         JLCEP.setText("CEP:");
 
-        JFTLCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        try {
+            JFTLCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         JLEstado.setText("Estado:");
 
@@ -174,7 +177,11 @@ public final class JIFDuplicata extends javax.swing.JInternalFrame {
 
         JLCelular1.setText("Celular:");
 
-        jftlCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        try {
+            jftlCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         JBGerarDuplicata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Impressão.png"))); // NOI18N
         JBGerarDuplicata.setToolTipText("Gerar Impressão da Duplicata");

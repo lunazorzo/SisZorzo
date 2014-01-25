@@ -10,7 +10,6 @@ import conexao.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -107,12 +106,12 @@ public class Cad_Cliente_DAO {
             UserTemp.setNum_celular1(rs.getString("Num_celular1"));
             UserTemp.setNum_celular2(rs.getString("Num_celular2"));
             UserTemp.setTxt_observacao(rs.getString("txt_observacao"));
-            Cad_Estado_TO ta = tadao.achar(rs.getLong("id_cod_estado"));
             UserTemp.setTxt_cidade(rs.getString("txt_cidade"));
-            System.out.println(rs);//Mostra a mensagem real do erro
+            Cad_Estado_TO ta = tadao.achar(rs.getLong("id_cod_estado"));
             UserTemp.setCad_estado(ta);
-            registros.add(UserTemp);
-        }
+            registros.add(UserTemp);            
+        }      
+        ps.close();
         return registros;
     }
 
@@ -138,11 +137,12 @@ public class Cad_Cliente_DAO {
             UserTemp.setNum_numero(rs.getString("num_numero"));
             UserTemp.setNum_cep(rs.getString("num_cep"));
             UserTemp.setNum_celular1(rs.getString("Num_celular1"));
-            Cad_Estado_TO ta = tadao.achar(rs.getLong("id_cod_estado"));
             UserTemp.setTxt_cidade(rs.getString("txt_cidade"));
+            Cad_Estado_TO ta = tadao.achar(rs.getLong("id_cod_estado"));
             UserTemp.setCad_estado(ta);
             registros.add(UserTemp);
         }
+        ps.close();
         return registros;
     }
 

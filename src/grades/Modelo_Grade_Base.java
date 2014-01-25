@@ -5,11 +5,11 @@ import java.util.List;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 
-public abstract class ModeloTabelaBase implements TableModel {
+public abstract class Modelo_Grade_Base implements TableModel {
     // Dados da Tabela
     protected ArrayList<Object> dados;
     
-    public ModeloTabelaBase() {   }
+    public Modelo_Grade_Base() {   }
 
     public void removeTableModelListener(TableModelListener l) {  }
     

@@ -10,7 +10,7 @@ import classes.Cad_Cliente_TO;
  *
  * @author Allan
  */
-public class Tabela_Busca_Cliente extends ModeloTabelaBase {
+public class Grade_Busca_Cliente_Duplicata extends Modelo_Grade_Base {
 
     public Object getValueAt(int rowIndex, int columnIndex) {
         if (dados != null && rowIndex < dados.size()) {
@@ -28,10 +28,10 @@ public class Tabela_Busca_Cliente extends ModeloTabelaBase {
                 return e.getTxt_endereco();
             }
             if (columnIndex == 4) {
-                return e.getTxt_bairrodistrito();
+                return e.getNum_numero();
             }
             if (columnIndex == 5) {
-                return e.getNum_numero();
+                return e.getTxt_bairrodistrito();
             }
             if (columnIndex == 6) {
                 return e.getNum_cep();
@@ -43,8 +43,9 @@ public class Tabela_Busca_Cliente extends ModeloTabelaBase {
                 return e.getTxt_cidade();
             }
             if (columnIndex == 9) {
-                return e.getNum_telefone();
+                return e.getNum_celular1();
             }
+
         }
         return null;
     }
@@ -64,9 +65,9 @@ public class Tabela_Busca_Cliente extends ModeloTabelaBase {
             case 3:
                 return "Endereco";
             case 4:
-                return "BairroDistrito";
-            case 5:
                 return "Numero";
+            case 5:
+                return "BairroDistrito";
             case 6:
                 return "CEP";
             case 7:
@@ -74,7 +75,7 @@ public class Tabela_Busca_Cliente extends ModeloTabelaBase {
             case 8:
                 return "Cidade";
             case 9:
-                return "Telefone";
+                return "Celular";
             default:
                 return "";
         }

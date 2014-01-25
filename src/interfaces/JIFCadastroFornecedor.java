@@ -9,7 +9,7 @@ import classes.Cad_Fornecedor_TO;
 import classes.UpperCaseField;
 import dao.Cad_Estado_DAO;
 import dao.Cad_Fornecedor_DAO;
-import grades.Tabela_Busca_Fornecedor;
+import grades.Grade_Busca_Fornecedor;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -27,11 +27,11 @@ import javax.swing.JOptionPane;
 public final class JIFCadastroFornecedor extends javax.swing.JInternalFrame {
 
     private Cad_Fornecedor_TO cad_fornecedor;
-    Tabela_Busca_Fornecedor ga;
+    Grade_Busca_Fornecedor ga;
 
     public JIFCadastroFornecedor() throws Exception {
         initComponents();
-        ga = new Tabela_Busca_Fornecedor();
+        ga = new Grade_Busca_Fornecedor();
         GradeBuscaFornecedor.setModel(ga);
         BuscaFornecedor.setMinimumSize(new Dimension(850, 520));//seta a dimensão/tamanho da tela
         BuscaFornecedor.setLocationRelativeTo(null);//Seta o Frame centralizado

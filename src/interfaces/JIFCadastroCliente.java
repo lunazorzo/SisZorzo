@@ -9,7 +9,7 @@ import classes.Cad_Estado_TO;
 import classes.UpperCaseField;
 import dao.Cad_Cliente_DAO;
 import dao.Cad_Estado_DAO;
-import grades.Tabela_Busca_Cliente;
+import grades.Grade_Busca_Cliente;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -27,20 +27,16 @@ import javax.swing.JOptionPane;
 public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
 
     private Cad_Cliente_TO cad_cliente;
-    Tabela_Busca_Cliente ga;
+    Grade_Busca_Cliente ga;
 
     public JIFCadastroCliente() throws Exception {
         initComponents();
-        ga = new Tabela_Busca_Cliente();
+        ga = new Grade_Busca_Cliente();
         GradeBuscaCliente.setModel(ga);
         BuscaCliente.setMinimumSize(new Dimension(850, 520));//seta a dimensão/tamanho da tela
         BuscaCliente.setLocationRelativeTo(null);//Seta o Frame centralizado
         carregaCombo();
         dataHohe();
-    }
-
-    JIFCadastroCliente(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @SuppressWarnings("unchecked")
@@ -88,6 +84,43 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTAObervacao = new javax.swing.JEditorPane();
         JDCDataCadastro = new com.toedter.calendar.JDateChooser();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        JLNomeRazao1 = new javax.swing.JLabel();
+        JTFNomeRazao1 = new UpperCaseField(); ;
+        JLCPFCNPJ1 = new javax.swing.JLabel();
+        JTFCPFCNPJ1 = new UpperCaseField(); ;
+        JBCNPJCPF1 = new javax.swing.JButton();
+        JBIncricaoEstadual1 = new javax.swing.JLabel();
+        JTFInscricaoEstadual1 = new UpperCaseField(); ;
+        JLCADPRO1 = new javax.swing.JLabel();
+        JTFCADPRO1 = new UpperCaseField(); ;
+        JBSintegra1 = new javax.swing.JButton();
+        JLEMAIL1 = new javax.swing.JLabel();
+        JTFEmail1 = new UpperCaseField(); ;
+        JLEndereco1 = new javax.swing.JLabel();
+        JTFEndereco1 = new UpperCaseField(); ;
+        JLBairroDistrito1 = new javax.swing.JLabel();
+        JTFBairroDistrito1 = new UpperCaseField(); ;
+        JLNumero1 = new javax.swing.JLabel();
+        JTFNumero1 = new UpperCaseField(); ;
+        JLCEP1 = new javax.swing.JLabel();
+        JFTLCEP1 = new javax.swing.JFormattedTextField();
+        JLEstado1 = new javax.swing.JLabel();
+        JCBEstado1 = new javax.swing.JComboBox();
+        JLCidade1 = new javax.swing.JLabel();
+        jtfCidade1 = new UpperCaseField(); ;
+        JLDataCadastro1 = new javax.swing.JLabel();
+        JLTelefone1 = new javax.swing.JLabel();
+        JFTLTelefone1 = new javax.swing.JFormattedTextField();
+        JLCelular3 = new javax.swing.JLabel();
+        JFTLCelular3 = new javax.swing.JFormattedTextField();
+        JLCelular4 = new javax.swing.JLabel();
+        JFTLCelular4 = new javax.swing.JFormattedTextField();
+        JLObservacao1 = new javax.swing.JLabel();
+        JBGravar1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        JTAObervacao1 = new javax.swing.JEditorPane();
+        JDCDataCadastro1 = new com.toedter.calendar.JDateChooser();
 
         BuscaCliente.setTitle("Busca de Cliente");
         BuscaCliente.setUndecorated(true);
@@ -239,6 +272,243 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
 
         jScrollPane1.setViewportView(JTAObervacao);
 
+        jInternalFrame1.setClosable(true);
+        jInternalFrame1.setTitle("Cadastro de Cliente");
+        jInternalFrame1.setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cliente.png"))); // NOI18N
+        jInternalFrame1.setPreferredSize(new java.awt.Dimension(728, 555));
+
+        JLNomeRazao1.setText("Nome/Razão:");
+
+        JTFNomeRazao1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JTFNomeRazao1KeyPressed(evt);
+            }
+        });
+
+        JLCPFCNPJ1.setText("CPF/CNPJ:");
+
+        JBCNPJCPF1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Busca.png"))); // NOI18N
+        JBCNPJCPF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCNPJCPF1ActionPerformed(evt);
+            }
+        });
+
+        JBIncricaoEstadual1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JBIncricaoEstadual1.setText("Inscrição Estadual:");
+
+        JLCADPRO1.setText("CADPRO:");
+
+        JBSintegra1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Busca.png"))); // NOI18N
+        JBSintegra1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBSintegra1ActionPerformed(evt);
+            }
+        });
+
+        JLEMAIL1.setText("E-mail:");
+
+        JLEndereco1.setText("Endereço:");
+
+        JLBairroDistrito1.setText("Bairro/Distrito:");
+
+        JLNumero1.setText("Número:");
+
+        JLCEP1.setText("CEP:");
+
+        try {
+            JFTLCEP1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        JLEstado1.setText("Estado:");
+
+        JLCidade1.setText("Cidade:");
+
+        JLDataCadastro1.setText("Data do Cadastro:");
+
+        JLTelefone1.setText("Telefone:");
+
+        try {
+            JFTLTelefone1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        JLCelular3.setText("Celular:");
+
+        try {
+            JFTLCelular3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        JLCelular4.setText("Celular:");
+
+        try {
+            JFTLCelular4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        JLObservacao1.setText("Observação:");
+
+        JBGravar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Salvar.png"))); // NOI18N
+        JBGravar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBGravar1ActionPerformed(evt);
+            }
+        });
+
+        jScrollPane3.setViewportView(JTAObervacao1);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JLNomeRazao1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JLCPFCNPJ1)
+                            .addComponent(JLCADPRO1)
+                            .addComponent(JLEndereco1))
+                        .addGap(13, 13, 13)
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                                .addComponent(JTFCADPRO1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JBSintegra1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JLEMAIL1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JTFEmail1))
+                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                                .addComponent(JTFCPFCNPJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JBCNPJCPF1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JBIncricaoEstadual1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JTFInscricaoEstadual1))
+                            .addComponent(JTFNomeRazao1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
+                                .addComponent(JTFEndereco1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JLNumero1)
+                                    .addComponent(JLCEP1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(JFTLCEP1)
+                                    .addComponent(JTFNumero1, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
+                                .addGap(35, 35, 35))))
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                                .addComponent(JLBairroDistrito1)
+                                .addGap(6, 6, 6)
+                                .addComponent(JTFBairroDistrito1))
+                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JLObservacao1)
+                                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                                        .addComponent(JLTelefone1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JFTLTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JLCelular3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JFTLCelular3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JLCelular4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JFTLCelular4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(127, 182, 182))
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addComponent(JLEstado1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JCBEstado1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(JLCidade1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtfCidade1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JLDataCadastro1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JDCDataCadastro1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))
+                    .addComponent(JBGravar1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JLNomeRazao1)
+                    .addComponent(JTFNomeRazao1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JTFCPFCNPJ1)
+                        .addComponent(JLCPFCNPJ1))
+                    .addComponent(JBCNPJCPF1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTFInscricaoEstadual1)
+                    .addComponent(JBIncricaoEstadual1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JLCADPRO1)
+                        .addComponent(JTFCADPRO1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JBSintegra1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JLEMAIL1)
+                        .addComponent(JTFEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JLEndereco1)
+                    .addComponent(JTFEndereco1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLNumero1)
+                    .addComponent(JTFNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JLBairroDistrito1)
+                    .addComponent(JTFBairroDistrito1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLCEP1)
+                    .addComponent(JFTLCEP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JLEstado1)
+                            .addComponent(JCBEstado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JLCidade1)
+                            .addComponent(JLDataCadastro1)
+                            .addComponent(jtfCidade1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JLTelefone1)
+                            .addComponent(JFTLTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JLCelular3)
+                            .addComponent(JFTLCelular3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JLCelular4)
+                            .addComponent(JFTLCelular4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JLObservacao1))
+                    .addComponent(JDCDataCadastro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBGravar1)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -321,6 +591,11 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                         .addGap(35, 35, 35))
                     .addComponent(JBGravar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 356, Short.MAX_VALUE)
+                    .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 356, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,6 +658,11 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JBGravar)
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 259, Short.MAX_VALUE)
+                    .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 260, Short.MAX_VALUE)))
         );
 
         pack();
@@ -575,47 +855,101 @@ public final class JIFCadastroCliente extends javax.swing.JInternalFrame {
         BuscaCliente.dispose();
         limparDados();
     }//GEN-LAST:event_JBFecharActionPerformed
+
+    private void JTFNomeRazao1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFNomeRazao1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFNomeRazao1KeyPressed
+
+    private void JBCNPJCPF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCNPJCPF1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBCNPJCPF1ActionPerformed
+
+    private void JBSintegra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSintegra1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBSintegra1ActionPerformed
+
+    private void JBGravar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGravar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBGravar1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame BuscaCliente;
     private javax.swing.JTable GradeBuscaCliente;
     private javax.swing.JButton JBBuscaCliente;
     private javax.swing.JButton JBCNPJCPF;
+    private javax.swing.JButton JBCNPJCPF1;
     private javax.swing.JButton JBFechar;
     private javax.swing.JButton JBGravar;
+    private javax.swing.JButton JBGravar1;
     private javax.swing.JLabel JBIncricaoEstadual;
+    private javax.swing.JLabel JBIncricaoEstadual1;
     private javax.swing.JButton JBSintegra;
+    private javax.swing.JButton JBSintegra1;
     private javax.swing.JComboBox JCBEstado;
+    private javax.swing.JComboBox JCBEstado1;
     private com.toedter.calendar.JDateChooser JDCDataCadastro;
+    private com.toedter.calendar.JDateChooser JDCDataCadastro1;
     private javax.swing.JFormattedTextField JFTLCEP;
+    private javax.swing.JFormattedTextField JFTLCEP1;
     private javax.swing.JFormattedTextField JFTLCelular1;
     private javax.swing.JFormattedTextField JFTLCelular2;
+    private javax.swing.JFormattedTextField JFTLCelular3;
+    private javax.swing.JFormattedTextField JFTLCelular4;
     private javax.swing.JFormattedTextField JFTLTelefone;
+    private javax.swing.JFormattedTextField JFTLTelefone1;
     private javax.swing.JLabel JLBairroDistrito;
+    private javax.swing.JLabel JLBairroDistrito1;
     private javax.swing.JLabel JLCADPRO;
+    private javax.swing.JLabel JLCADPRO1;
     private javax.swing.JLabel JLCEP;
+    private javax.swing.JLabel JLCEP1;
     private javax.swing.JLabel JLCPFCNPJ;
+    private javax.swing.JLabel JLCPFCNPJ1;
     private javax.swing.JLabel JLCelular1;
     private javax.swing.JLabel JLCelular2;
+    private javax.swing.JLabel JLCelular3;
+    private javax.swing.JLabel JLCelular4;
     private javax.swing.JLabel JLCidade;
+    private javax.swing.JLabel JLCidade1;
     private javax.swing.JLabel JLDataCadastro;
+    private javax.swing.JLabel JLDataCadastro1;
     private javax.swing.JLabel JLEMAIL;
+    private javax.swing.JLabel JLEMAIL1;
     private javax.swing.JLabel JLEndereco;
+    private javax.swing.JLabel JLEndereco1;
     private javax.swing.JLabel JLEstado;
+    private javax.swing.JLabel JLEstado1;
     private javax.swing.JLabel JLNomeRazao;
+    private javax.swing.JLabel JLNomeRazao1;
     private javax.swing.JLabel JLNumero;
+    private javax.swing.JLabel JLNumero1;
     private javax.swing.JLabel JLObservacao;
+    private javax.swing.JLabel JLObservacao1;
     private javax.swing.JLabel JLTelefone;
+    private javax.swing.JLabel JLTelefone1;
     private javax.swing.JEditorPane JTAObervacao;
+    private javax.swing.JEditorPane JTAObervacao1;
     private javax.swing.JTextField JTFBairroDistrito;
+    private javax.swing.JTextField JTFBairroDistrito1;
     private javax.swing.JTextField JTFCADPRO;
+    private javax.swing.JTextField JTFCADPRO1;
     private javax.swing.JTextField JTFCPFCNPJ;
+    private javax.swing.JTextField JTFCPFCNPJ1;
     private javax.swing.JTextField JTFEmail;
+    private javax.swing.JTextField JTFEmail1;
     private javax.swing.JTextField JTFEndereco;
+    private javax.swing.JTextField JTFEndereco1;
     private javax.swing.JTextField JTFInscricaoEstadual;
+    private javax.swing.JTextField JTFInscricaoEstadual1;
     private javax.swing.JTextField JTFNomeRazao;
+    private javax.swing.JTextField JTFNomeRazao1;
     private javax.swing.JTextField JTFNumero;
+    private javax.swing.JTextField JTFNumero1;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jtfCidade;
+    private javax.swing.JTextField jtfCidade1;
     // End of variables declaration//GEN-END:variables
 }

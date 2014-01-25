@@ -32,8 +32,9 @@
                   <Component id="F3" min="-2" max="-2" attributes="0"/>
                   <Component id="F2" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="F9" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="F10" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -46,7 +47,9 @@
               <Component id="F3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="F9" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="F10" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,6 +66,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="F9">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="F4 - Cadastro de Produtos"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="F10">
       <Properties>
         <Property name="text" type="java.lang.String" value="F9 - Impress&#xe3;o de Duplicatas"/>
       </Properties>
