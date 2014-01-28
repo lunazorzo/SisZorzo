@@ -11,10 +11,10 @@ public class Grade_Busca_Produto extends Modelo_Grade_Base {
                 return e.getTxt_produto();
             }
             if (columnIndex == 1) {
-                return e.getCad_fornecedor().getId_cod_cliente();
+                return e.getCad_fornecedor().getTxt_nomerazaosocial();
             }
             if (columnIndex == 2) {
-                return e.getCad_unidade_medida().getId_cod_unidade_medida();
+                return e.getCad_unidade_medida().getTxt_unidade_medida();
             }
             if (columnIndex == 3) {
                 return e.getValor_compra();
@@ -39,19 +39,19 @@ public class Grade_Busca_Produto extends Modelo_Grade_Base {
     public String getColumnName(int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return "Descrição Produto";
+                return "Produto";
             case 1:
                 return "Fornecedor";
             case 2:
-                return "Unidade de Medida";
+                return "UM";
             case 3:
-                return "Valor de Compra R$";
+                return "VL Compra R$";
             case 4:
-                return "Valor de Venda R$";
+                return "VL Venda R$";
             case 5:
                 return "NCM";
             case 6:
-                return "Observacao";
+                return "Observações";
             default:
                 return "";
         }

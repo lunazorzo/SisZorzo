@@ -134,7 +134,6 @@ public class Cad_Fornecedor_DAO {
             Cad_Estado_TO ta = tadao.achar(rs.getLong("id_cod_estado"));
             UserTemp.setTxt_cidade(rs.getString("txt_cidade"));
             UserTemp.setCad_estado(ta);
-
             registros.add(UserTemp);
         }
         return registros;
@@ -155,7 +154,6 @@ public class Cad_Fornecedor_DAO {
         return adubacaoTemp;
     }
 
-    
     //está sendo usado na tala de cadastro dos produtos combox
     public ArrayList<Cad_Fornecedor_TO> buscarFornecedor() throws Exception {//listando para fazer a impressao na grade
         Conexao con = new Conexao();

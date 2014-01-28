@@ -59,11 +59,11 @@ public class Cad_Produto_DAO {
         Conexao con = new Conexao();
         String sql = "SELECT * FROM dbproduto where txt_nomeproduto ILIKE ?";//selecionando no banco passando o nome da tabela
         PreparedStatement ps = con.getCon().prepareStatement(sql);
-        ps.setString(1, "%" + nomeproduto + "%");
+        ps.setString(1, "%" + nomeproduto  + "%");
         ResultSet rs = ps.executeQuery();
         ArrayList<Cad_Produto_TO> registros = new ArrayList<>();
         Cad_Produto_TO UserTemp;
-        Cad_Produto_DAO tadao = Cad_Produto_DAO.getInstance();
+        Cad_Produto_DAO  tadao = Cad_Produto_DAO.getInstance();
         while (rs.next()) {
             UserTemp = new Cad_Produto_TO();
             UserTemp.setId_cod_produto(rs.getLong("id_cod_produto"));
@@ -77,12 +77,10 @@ public class Cad_Produto_DAO {
             Cad_Fornecedor_TO to = tadao.acharFornecedor(rs.getLong("id_cod_fornecedor"));
             UserTemp.setCad_fornecedor(to);
             registros.add(UserTemp);
-            return registros;
         }
-        return null;
-
+        return registros;
     }
-
+    
     private Cad_Unidade_Medida_TO acharUnidadeMedida(long id) throws Exception {
         Conexao con = new Conexao();
         String sql = "SELECT * FROM dbunidadenumerica WHERE id_cod_unidadenumerica = " + id;//selecionando no banco passando o nome da tabela
