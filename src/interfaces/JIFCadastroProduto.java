@@ -4,8 +4,6 @@
  */
 package interfaces;
 
-import classes.Cad_Cliente_TO;
-import classes.Cad_Estado_TO;
 import classes.Cad_Fornecedor_TO;
 import classes.Cad_Produto_TO;
 import classes.Cad_Unidade_Medida_TO;
@@ -26,9 +24,6 @@ import javax.swing.JOptionPane;
  */
 public final class JIFCadastroProduto extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form JIFProduto
-     */
     private Cad_Produto_TO cad_produto;
     Grade_Busca_Produto gradeproduto;
 
@@ -36,8 +31,6 @@ public final class JIFCadastroProduto extends javax.swing.JInternalFrame {
         initComponents();
         gradeproduto = new Grade_Busca_Produto();
         GradeBuscaProduto.setModel(gradeproduto);
-
-
         carregaComboUnidadeMedidade();
         carregaComboFornecedor();
 

@@ -8,8 +8,6 @@ import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import classes.ClasseImagem;
@@ -22,6 +20,12 @@ import javax.swing.JDesktopPane;
 public class JFPrincipal extends javax.swing.JFrame {
 
     private int resposta;
+    //Inicializa as Frames como vazias, para serem utilizadas na abertura de somente uma tela 
+    JIFCadastroCliente FrameCliente = null;
+    JIFCadastroFornecedor FrameFornecedor = null;
+    JIFCadastroProduto FrameProduto = null;
+    JIFDuplicata FrameDuplicata = null;
+    JIFAjuda FrameAjuda = null;
 
     public JFPrincipal() {
         try {
@@ -51,11 +55,11 @@ public class JFPrincipal extends javax.swing.JFrame {
         jmCadastro = new javax.swing.JMenu();
         CadCliente = new javax.swing.JMenuItem();
         CadFornecedor = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        CadProduto = new javax.swing.JMenuItem();
         jmRelatorios = new javax.swing.JMenu();
         RelDuplicata = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmSuporte = new javax.swing.JMenu();
+        SupAjuda = new javax.swing.JMenuItem();
 
         jMenuItem3.setText("jMenuItem3");
 
@@ -90,15 +94,15 @@ public class JFPrincipal extends javax.swing.JFrame {
         });
         jmCadastro.add(CadFornecedor);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Produto.png"))); // NOI18N
-        jMenuItem2.setText("Produto");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        CadProduto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        CadProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Produto.png"))); // NOI18N
+        CadProduto.setText("Produto");
+        CadProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                CadProdutoActionPerformed(evt);
             }
         });
-        jmCadastro.add(jMenuItem2);
+        jmCadastro.add(CadProduto);
 
         jMenuBar1.add(jmCadastro);
 
@@ -117,20 +121,20 @@ public class JFPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jmRelatorios);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Suporte.png"))); // NOI18N
-        jMenu1.setText("Suporte");
+        jmSuporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Suporte.png"))); // NOI18N
+        jmSuporte.setText("Suporte");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Ajuda.png"))); // NOI18N
-        jMenuItem1.setText("Ajuda");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        SupAjuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        SupAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Ajuda.png"))); // NOI18N
+        SupAjuda.setText("Ajuda");
+        SupAjuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                SupAjudaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jmSuporte.add(SupAjuda);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jmSuporte);
 
         setJMenuBar(jMenuBar1);
 
@@ -161,61 +165,117 @@ public class JFPrincipal extends javax.swing.JFrame {
 
     private void RelDuplicataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelDuplicataActionPerformed
         try {
-            JIFDuplicata T = new JIFDuplicata();
-            // T.setLocation(425, 150);
-            JDesktop.add(T);
-            T.setVisible(true);
-            T.setPosicao();
+            if (evt.getSource() == RelDuplicata) {
+                if (FrameDuplicata == null) {
+                    FrameDuplicata = new JIFDuplicata();
+                    JDesktop.add(FrameDuplicata);
+                    FrameDuplicata.setVisible(true);
+                }
+                FrameDuplicata.setPosicao();//Seta centralizado
+                JDesktop.moveToFront(FrameDuplicata);
+            }
+            if (FrameDuplicata.isClosed()) {
+                FrameDuplicata = new JIFDuplicata();
+                JDesktop.add(FrameDuplicata);
+                FrameDuplicata.setVisible(true);
+                JDesktop.moveToFront(FrameDuplicata);
+            }
         } catch (Exception ex) {
-            Logger.getLogger(JFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_RelDuplicataActionPerformed
 
     private void CadFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadFornecedorActionPerformed
+        //Não deixa com que abra duas Frame
+        //http://www.guj.com.br/588-jinternalframe-cliente-abrir-somente-um-e-quando-fechar-e-abrir-novamente-abrir-um-novo
         try {
-            JIFCadastroFornecedor T = new JIFCadastroFornecedor();
-            // T.setLocation(425, 150);
-            JDesktop.add(T);
-            T.setVisible(true);
-            T.setPosicao();
+            if (evt.getSource() == CadFornecedor) {
+                if (FrameFornecedor == null) {
+                    FrameFornecedor = new JIFCadastroFornecedor();
+                    JDesktop.add(FrameFornecedor);
+                    FrameFornecedor.setVisible(true);
+                }
+                FrameFornecedor.setPosicao();//Seta centralizado
+                JDesktop.moveToFront(FrameFornecedor);
+            }
+            if (FrameFornecedor.isClosed()) {
+                FrameFornecedor = new JIFCadastroFornecedor();
+                JDesktop.add(FrameFornecedor);
+                FrameFornecedor.setVisible(true);
+                JDesktop.moveToFront(FrameFornecedor);
+            }
         } catch (Exception ex) {
-            Logger.getLogger(JFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_CadFornecedorActionPerformed
 
     private void CadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClienteActionPerformed
+
         try {
-            JIFCadastroCliente T = new JIFCadastroCliente();
-            //T.setLocation(425, 150);
-            JDesktop.add(T);
-            T.setVisible(true);
-            T.setPosicao();
+            if (evt.getSource() == CadCliente) {
+                if (FrameCliente == null) {
+                    FrameCliente = new JIFCadastroCliente();
+                    JDesktop.add(FrameCliente);
+                    FrameCliente.setVisible(true);
+                }
+                FrameCliente.setPosicao();//Seta centralizado
+                JDesktop.moveToFront(FrameCliente);
+            }
+            if (FrameCliente.isClosed()) {
+                FrameCliente = new JIFCadastroCliente();
+                JDesktop.add(FrameCliente);
+                FrameCliente.setVisible(true);
+                JDesktop.moveToFront(FrameCliente);
+            }
         } catch (Exception ex) {
-            Logger.getLogger(JFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex);
         }
+
     }//GEN-LAST:event_CadClienteActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void SupAjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupAjudaActionPerformed
         try {
-            JIFAjuda T = new JIFAjuda();
-            JDesktop.add(T);
-            T.setVisible(true);
-            T.setPosicao();
+            if (evt.getSource() == SupAjuda) {
+                if (FrameAjuda == null) {
+                    FrameAjuda = new JIFAjuda();
+                    JDesktop.add(FrameAjuda);
+                    FrameAjuda.setVisible(true);
+                }
+                FrameAjuda.setPosicao();//Seta centralizado
+                JDesktop.moveToFront(FrameAjuda);
+            }
+            if (FrameAjuda.isClosed()) {
+                FrameAjuda = new JIFAjuda();
+                JDesktop.add(FrameAjuda);
+                FrameAjuda.setVisible(true);
+                JDesktop.moveToFront(FrameAjuda);
+            }
         } catch (Exception ex) {
-            Logger.getLogger(JFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex);
         }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_SupAjudaActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void CadProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadProdutoActionPerformed
         try {
-            JIFCadastroProduto T = new JIFCadastroProduto();
-            JDesktop.add(T);
-            T.setVisible(true);
-            T.setPosicao();
+            if (evt.getSource() == CadProduto) {
+                if (FrameProduto == null) {
+                    FrameProduto = new JIFCadastroProduto();
+                    JDesktop.add(FrameProduto);
+                    FrameProduto.setVisible(true);
+                }
+                FrameProduto.setPosicao();//Seta centralizado
+                JDesktop.moveToFront(FrameProduto);
+            }
+            if (FrameProduto.isClosed()) {
+                FrameProduto = new JIFCadastroProduto();
+                JDesktop.add(FrameProduto);
+                FrameProduto.setVisible(true);
+                JDesktop.moveToFront(FrameProduto);
+            }
         } catch (Exception ex) {
-            Logger.getLogger(JFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex);
         }
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_CadProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,15 +314,15 @@ public class JFPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem CadCliente;
     private javax.swing.JMenuItem CadFornecedor;
+    private javax.swing.JMenuItem CadProduto;
     private javax.swing.JDesktopPane JDesktop;
     private javax.swing.JMenuItem RelDuplicata;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem SupAjuda;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu jmCadastro;
     private javax.swing.JMenu jmRelatorios;
+    private javax.swing.JMenu jmSuporte;
     // End of variables declaration//GEN-END:variables
 
     private JDesktopPane getTelaDesktop() {
