@@ -69,10 +69,10 @@ public class JIFAjuda extends javax.swing.JInternalFrame {
                 .addComponent(F9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(F10)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        pack();
+        setBounds(0, 0, 249, 163);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel F10;
@@ -80,4 +80,5 @@ public class JIFAjuda extends javax.swing.JInternalFrame {
     private javax.swing.JLabel F3;
     private javax.swing.JLabel F9;
     // End of variables declaration//GEN-END:variables
+      
 }
