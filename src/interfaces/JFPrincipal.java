@@ -160,7 +160,7 @@ public class JFPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void RelDuplicataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelDuplicataActionPerformed
-        
+
         try {
             if (evt.getSource() == RelDuplicata) {
                 if (duplicata == null) {
